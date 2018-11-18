@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 //module setting
 import { Users, Clubs, Appliers } from './mongo';
@@ -31,14 +34,12 @@ import { Users, Clubs, Appliers } from './mongo';
 // });
 
 app.get('/', function (req, res) {
-   res.sendFile(__dirname + '/index.html');
+   // res.sendFile(__dirname + '/views/index.html');
+   res.render('index');
 });
 app.get('/:page', function (req, res) {
   const page = req.params.page;
-  if(page.indexOf('.html') == -1)
-    res.sendFile(__dirname + '/' + page + '.html');
-  else
-   res.sendFile(__dirname + '/' + page);
+  res.render(page + '');
 });
 //서버 실행
 const PORT = 9999;
@@ -48,3 +49,6 @@ app.listen(PORT, function(){
 
 require('./routes/index')(app);
 require('./routes/auth/auth')(app, Users, rndstring);
+require('./routes/club/getClub')(app, Clubs, Users, rndstring);
+require('./routes/club/setClub')(app, Clubs, Users, rndstring);
+require('./routes/apply/apply')(app, Appliers, rndstring);
