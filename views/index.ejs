@@ -75,56 +75,23 @@
             <hr width="70px">
             <div class="sec-name">동아리 소개</div>
             <div class="sec-explain">관심있는 동아리를 마음껏 구경해보세요!</div>
-
             <div class="club-row">
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
 
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
+            <%if(contents.length>0){%>
+              <%var i = 0;%>
+              <%contents.forEach(function(item){%>
+              <%i++;%>
 
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-            </div>
-
-            <div class="club-row">
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-            </div>
-
-            <div class="club-row">
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
-
-                <div class="club-col">
-                    <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
-                    <div class="club-name">게이ㅁ메이커</div>
-                </div>
+                  <div class="club-col" onclick="location.href='/view/<%=item.token%>'">
+                      <img class="club-img" src="http://localhost:9999/assets/club-img.jpg">
+                      <div class="club-name"><%=item.name%></div>
+                  </div>
+              <%})%>
+              <%} else {%>
+              <tr>
+                  <td colspan="5">아직 등록된 동아리가 없습니다.</td>
+              </tr>
+            <%}%>
             </div>
 
             <div class="page">

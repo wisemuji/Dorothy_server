@@ -35,10 +35,14 @@ import { Users, Clubs, Appliers } from './mongo';
 
 app.get('/', function (req, res) {
    // res.sendFile(__dirname + '/views/index.html');
-   res.render('index');
+   Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
+     if(err) throw err;
+        res.render('index', {contents: rawContents});
+    });
 });
 app.get('/:page', function (req, res) {
   const page = req.params.page;
+  if(page == 'index') res.redirect('/');
   res.render(page + '');
 });
 //서버 실행
@@ -49,6 +53,6 @@ app.listen(PORT, function(){
 
 require('./routes/index')(app);
 require('./routes/auth/auth')(app, Users, rndstring);
-require('./routes/club/getClub')(app, Clubs, Users, rndstring);
+require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
 require('./routes/apply/apply')(app, Appliers, rndstring);

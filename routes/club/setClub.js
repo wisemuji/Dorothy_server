@@ -15,5 +15,15 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       await to(club.save());
       res.status(200).json(club);
   })
+  .post('/deleteClub', async (req,res)=>{
+      Clubs.remove({}, function(err) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.end('success');
+            }
+          }
+      );
+    })
 
 };

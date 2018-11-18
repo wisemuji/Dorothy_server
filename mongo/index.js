@@ -27,6 +27,7 @@ var ClubSchema = mongoose.Schema({
   activity: {type : String}, //활동 내용
   reason: {type : String}, //지원해야 하는 이유
   etc: {type : String}, //기타 공지
+  date: {type: Date, default: Date.now}, //수정 날짜
   token : {type : String} //club token
 });
 
