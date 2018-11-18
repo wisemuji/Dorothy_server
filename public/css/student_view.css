@@ -1,0 +1,56 @@
+.view-img {
+    background-image: url('../assets/img_1_ori.png');
+    max-height: 1010px;
+    overflow: hidden;
+    width: 100%;
+    height: 1010px;
+    position: relative;
+    align-items: center;
+}
+
+.title {
+    margin:0 auto;
+    position: relative;
+    margin-top: 288px;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+
+.content {
+    display: flex;
+    margin: 120px auto 0px auto;
+}
+
+.content label {
+    font-size: 25px;
+    margin-top: 27px;
+    width: 140px;
+}
+
+.contents {
+    width: 878px;
+    height: 308px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    overflow: hidden;
+    margin-left: 182px;
+    text-align: left;
+}
+
+.join-btn {
+    width: 381px;
+    height: 64px;
+    border: none;
+    border-radius: 10px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 47px;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 172px 0px 113px 0px;
+}

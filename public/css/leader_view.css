@@ -1,0 +1,137 @@
+.view-img {
+    background-image: url('../assets/img_1_ori.png');
+    max-height: 1010px;
+    overflow: hidden;
+    width: 100%;
+    height: 1010px;
+    position: relative;
+    align-items: center;
+}
+
+.title {
+    margin:0 auto;
+    position: relative;
+    margin-top: 288px;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+
+.content {
+    display: flex;
+    margin: 120px auto 0px auto;
+}
+
+.content label {
+    font-size: 25px;
+    margin-top: 27px;
+    width: 140px;
+}
+
+.contents {
+    width: 878px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    overflow: hidden;
+    margin-left: 182px;
+    text-align: left;
+}
+
+textarea {
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    outline: none;
+    padding: 20px;
+    resize: none;
+    line-height: 1.7em;
+}
+
+.join-btn {
+    width: 381px;
+    height: 64px;
+    border: none;
+    border-radius: 10px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 47px;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 172px 0px 113px 0px;
+}
+
+.pic {
+    display: flex;
+}
+
+.pic-area {
+    width: 127px;
+    height: 159px;
+    border-radius: 5px;
+    box-shadow: 0px 11px 48px 0 rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    margin-right: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pic-btn label {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #000000;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.btns {
+    margin-top: 128px;
+    margin-bottom: 122px;
+}
+
+.form-submit, .form-cansle {
+    width: 280px;
+    height: 64px;
+    border-radius: 10px;
+    border: none;
+    background-color: #000000;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.pic-btn input[type="file"] {  /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+}
+
+.floating-menu {
+    font-family: sans-serif;
+    padding: 5px;
+    z-index: 100;
+    position: fixed;
+    right: 10%;
+    bottom: 13%;
+}

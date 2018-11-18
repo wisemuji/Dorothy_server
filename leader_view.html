@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dorothy</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/leader_view.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+</head>
+<body id="page-top">
+    <div class="header">
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #ffffff;">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="public/assets/Dorothy_logo.png"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.html#introduction">동아리 소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.html#calendar">캘린더</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="login.html">로그인</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+
+    <!-- floating menu -->
+    <nav class="floating-menu">
+        <a class="nav-link js-scroll-trigger" href="#page-top"><img src="public/assets/up.png"></a>
+    </nav>
+
+    <!-- form -->
+    <div class="container" style="padding: 0;">
+        <form action="" method="post" style="margin-top: 190px;">
+            <!-- 동아리 이름 -->
+            <div class="content" style="padding-top: 23px;">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="name">동아리 이름</label>
+                </div>
+                <div class="contents name incontent">
+                    <textarea style="width: 380px; height: 56px; padding: 8px 20px;"></textarea> 
+                </div>
+            </div>
+
+            <!-- 동아리 사진 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="pic">동아리 사진</label>
+                </div>
+                <div class="contents pic incontent">
+                    <div class="pic-area">
+                        <div class="pic-btn">
+                            <label for="ex_file">+</label>
+                            <input type="file" id="ex_file"> 
+                        </div>
+                    </div>
+                    <div class="pic-area">
+                        <div class="pic-btn">
+                            <label for="ex_file">+</label>
+                            <input type="file" id="ex_file"> 
+                        </div>
+                    </div>
+                    <div class="pic-area">
+                        <div class="pic-btn">
+                            <label for="ex_file">+</label>
+                            <input type="file" id="ex_file"> 
+                        </div>
+                    </div>
+                    <div class="pic-area">
+                        <div class="pic-btn">
+                            <label for="ex_file">+</label>
+                            <input type="file" id="ex_file"> 
+                        </div>
+                    </div>
+                    <div class="pic-area" style="margin-right: 0;">
+                        <div class="pic-btn">
+                            <label for="ex_file">+</label>
+                            <input type="file" id="ex_file"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 동아리 소개 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="intro">동아리 소개</label>
+                </div>
+
+                <div class="contents intro incontent">
+                    <textarea style="width: 880px; height: 333px; padding: 8px 20px;"></textarea>
+                </div> 
+            </div>
+
+            <!-- 동아리 목표 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="goal">동아리 목표</label>
+                </div>
+                <div class="contents goal incontent">
+                    <textarea style="width: 880px; height: 333px; padding: 8px 20px;"></textarea>
+                </div>
+            </div>
+
+            <!-- 동아리 활동 내용 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="activity">동아리<br>활동 내용</label>
+                </div>
+                <div class="contents activity incontent">
+                    <textarea style="width: 880px; height: 333px; padding: 8px 20px;"></textarea>
+                </div>
+            </div>
+
+            <!-- 신입생들이 지원해야 하는 이유 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="reason">신입생들이<br>지원해야하는<br>이유</label>
+                </div>
+                <div class="contents reason incontent">
+                    <textarea style="width: 880px; height: 333px; padding: 8px 20px;"></textarea>
+                </div>
+            </div>
+
+            <!-- 면접 날짜 기타 공지 -->
+            <div class="content">
+                <div class="index incontent">
+                    <hr width="70px" style="padding: 0; margin: 0;">
+                    <label for="date">면접 날짜<br>기타 공지</label>
+                </div>
+                <div class="contents date incontent">
+                    <textarea style="width: 880px; height: 333px; padding: 8px 20px;"></textarea>
+                </div>
+            </div>
+
+            <center><div class="btns">
+                    <input type="button" value="취소"class="form-cansle">
+                    <input type="submit" value="신청하기"class="form-submit">
+            </div></center>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="public/js/grayscale.min.js"></script>
+    <script src="public/js/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>
