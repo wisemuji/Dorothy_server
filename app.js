@@ -29,18 +29,6 @@ import { Users, Clubs } from './mongo';
 // app.post('/test', function(req, res){
 //   console.log(req.body);
 // });
-app.get('/', function (req, res) {
-   //res.send('Hello World!');
-   res.sendFile(__dirname + '/index.html');
-});
-app.get('/index', function (req, res) {
-   //res.send('Hello World!');
-   res.sendFile(__dirname + '/index.html');
-});
-app.get('/login', function (req, res) {
-   //res.send('Hello World!');
-   res.sendFile(__dirname + '/login.html');
-});
 
 //서버 실행
 const PORT = 9999;
