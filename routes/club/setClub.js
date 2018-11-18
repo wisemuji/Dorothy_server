@@ -13,7 +13,7 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       const club = new Clubs(data);
       club.token = rndstring.generate(25);
       await to(club.save());
-      res.status(200).json(club);
+      res.redirect("/");
   })
   .post('/deleteClub', async (req,res)=>{
       Clubs.remove({}, function(err) {
