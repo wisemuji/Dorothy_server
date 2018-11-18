@@ -30,6 +30,16 @@ import { Users, Clubs } from './mongo';
 //   console.log(req.body);
 // });
 
+app.get('/', function (req, res) {
+   res.sendFile(__dirname + '/index.html');
+});
+app.get('/:page', function (req, res) {
+  const page = req.params.page;
+  if(page.indexOf('.html') == -1)
+    res.sendFile(__dirname + '/' + page + '.html');
+  else
+   res.sendFile(__dirname + '/' + page);
+});
 //서버 실행
 const PORT = 9999;
 app.listen(PORT, function(){
