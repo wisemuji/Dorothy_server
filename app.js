@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 
 //module setting
-import { Users, Clubs } from './mongo';
+import { Users, Clubs, Appliers } from './mongo';
 //module setting
 // import { Users, Hackathons } from './mongo';
 // require('./func')
@@ -47,4 +47,4 @@ app.listen(PORT, function(){
 });
 
 require('./routes/index')(app);
-require('./routes/auth/auth')(app, Users);
+require('./routes/auth/auth')(app, Users, rndstring);

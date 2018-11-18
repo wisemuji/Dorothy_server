@@ -13,50 +13,37 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () { console.log("Mongo On"); });
 
 var UsersSchema = mongoose.Schema({
-  email: {type: String}, //이메일(아이디)
-  passwd: {type: String}, //비밀번호
-  name: {type: String}, //이름
-  token : {type : String}, // 소셜 로그인 시 사용될 토큰 혹은 자동로그인.
-  profile_img: {type: String}, // 프로필 사진, url을 넣어주면됨
-  school: {type: String}, //학교
-  fields: [{
-    type: String,
-    enum : ['app','vr','game','iot','etc'],
-    default: 'etc'
-  }], //관심 분야
-  jobs: [{
-    type: String,
-    enum : ['pm','developer','designer','etc'],
-    default: 'etc'
-  }], //직군
-  skill_set: {type: String}, //스킬셋
-  github: {type: String}, //깃허브 주소
-  favorites: [{
-    type: String //즐겨찾기한 해커톤 - 토큰으로 저장
-  }],
-  attendance: [{
-    type: String //참가했던 해커톤 - 토큰으로 저장
-  }]
+  id: {type : String}, //아이디
+  passwd: {type : String}, //비밀번호
+  club: {type : String}, //소속 동아리
+  token : {type : String} //user token
 });
 
 var ClubSchema = mongoose.Schema({
-  start_day: { type: Date, default: Date.now }, //행사 시작하는 날짜
-  end_day: { type: Date, default: Date.now }, //행사 끝나는 날짜
-  start_apply: { type: Date, default: Date.now }, //신청 시작하는 날짜
-  end_apply: { type: Date, default: Date.now }, //신청 끝나는 날짜
-  host: { type: String }, //주최
-  token : {type : String}, //해커톤 토큰
-  location: { type: String }, //행사 장소
-  summary: { type: String }, //행사 개요
-  field: { type: String }, //관심 분야
-  views: { type: Number } //조회수
+  img: {type : String}, //활동 사진
+  introduction: {type : String}, //소개
+  goal: {type : String}, //목표
+  activity: {type : String}, //활동 내용
+  reason: {type : String}, //지원해야 하는 이유
+  etc: {type : String}, //기타 공지
+  token : {type : String} //club token
 });
 
-require('./err')(UsersSchema, ClubSchema);
+var ApplierSchema = mongoose.Schema({
+  id: {type : Number}, //학번
+  name: {type : String}, //이름
+  pr: {type : String}, //자기소개
+  reason: {type : String}, //신청이유
+  club: {type : String}, //신청 동아리
+  token : {type : String} //applier token
+});
+
+require('./err')(UsersSchema, ClubSchema, ApplierSchema);
 
 var Users = mongoose.model("users", UsersSchema);
 var Clubs = mongoose.model("clubs", ClubSchema);
+var Appliers = mongoose.model("appliers", ApplierSchema);
 
-export {Users, Clubs};
+export {Users, Clubs, Appliers};
 
 export default db;

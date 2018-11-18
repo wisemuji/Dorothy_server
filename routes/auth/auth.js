@@ -1,4 +1,4 @@
-module.exports = (app, Users)=>{
+module.exports = (app, Users, rndstring)=>{
   app.post('/logout', async (req,res)=>{
 
   })
