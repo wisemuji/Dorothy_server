@@ -54,6 +54,7 @@
     <!-- form -->
     <div class="container" style="padding: 0;">
         <form action="setClub" method="post" style="margin-top: 190px;">
+            <textarea name="token" style=" display:none;"><%=item.token%></textarea>
             <!-- 동아리 이름 -->
             <div class="content" style="padding-top: 23px;">
                 <div class="index incontent">
@@ -61,7 +62,7 @@
                     <label for="name">동아리 이름</label>
                 </div>
                 <div class="contents name incontent">
-                    <textarea name="name" style="width: 380px; height: 56px; padding: 8px 20px;" required readonly><%=item.name%></textarea>
+                    <textarea name="name" style="width: 380px; height: 56px; padding: 8px 20px;" required><%=item.name%></textarea>
                 </div>
             </div>
 
@@ -113,7 +114,7 @@
                 </div>
 
                 <div class="contents intro incontent">
-                    <textarea name="introduction" style="width: 880px; height: 333px; padding: 8px 20px;" required></textarea>
+                    <textarea name="introduction" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.introduction%></textarea>
                 </div>
             </div>
 
@@ -124,7 +125,7 @@
                     <label for="goal">동아리 목표</label>
                 </div>
                 <div class="contents goal incontent">
-                    <textarea name="goal" style="width: 880px; height: 333px; padding: 8px 20px;" required></textarea>
+                    <textarea name="goal" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.goal%></textarea>
                 </div>
             </div>
 
@@ -135,7 +136,7 @@
                     <label for="activity">동아리<br>활동 내용</label>
                 </div>
                 <div class="contents activity incontent">
-                    <textarea name="activity" style="width: 880px; height: 333px; padding: 8px 20px;" required></textarea>
+                    <textarea name="activity" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.activity%></textarea>
                 </div>
             </div>
 
@@ -146,7 +147,7 @@
                     <label for="reason">신입생들이<br>지원해야하는<br>이유</label>
                 </div>
                 <div class="contents reason incontent">
-                    <textarea name="reason" style="width: 880px; height: 333px; padding: 8px 20px;" required></textarea>
+                    <textarea name="reason" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.reason%></textarea>
                 </div>
             </div>
 
@@ -157,7 +158,7 @@
                     <label for="date">면접 날짜<br>기타 공지</label>
                 </div>
                 <div class="contents date incontent">
-                    <textarea name="etc" style="width: 880px; height: 333px; padding: 8px 20px;" required></textarea>
+                    <textarea name="etc" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.etc%></textarea>
                 </div>
             </div>
 
