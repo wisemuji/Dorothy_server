@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //module setting
-import { Users, Clubs, Appliers } from './mongo';
+import { Users, Clubs } from './mongo';
 //module setting
 // import { Users, Hackathons } from './mongo';
 // require('./func')
@@ -55,4 +55,4 @@ require('./routes/index')(app);
 require('./routes/auth/auth')(app, Users, rndstring);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
-require('./routes/apply/apply')(app, Appliers, rndstring);
+require('./routes/apply/apply')(app, Clubs, rndstring);

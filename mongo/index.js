@@ -28,24 +28,22 @@ var ClubSchema = mongoose.Schema({
   reason: {type : String}, //지원해야 하는 이유
   etc: {type : String}, //기타 공지
   date: {type: Date, default: Date.now}, //수정 날짜
-  token : {type : String} //club token
+  token : {type : String}, //club token
+  appliers : [{
+    id: {type : Number}, //학번
+    name: {type : String}, //이름
+    pr: {type : String}, //자기소개
+    reason: {type : String}, //신청이유
+    club: {type : String}, //신청 동아리
+    token : {type : String} //applier token
+  }]
 });
 
-var ApplierSchema = mongoose.Schema({
-  id: {type : Number}, //학번
-  name: {type : String}, //이름
-  pr: {type : String}, //자기소개
-  reason: {type : String}, //신청이유
-  club: {type : String}, //신청 동아리
-  token : {type : String} //applier token
-});
-
-require('./err')(UsersSchema, ClubSchema, ApplierSchema);
+require('./err')(UsersSchema, ClubSchema);
 
 var Users = mongoose.model("users", UsersSchema);
 var Clubs = mongoose.model("clubs", ClubSchema);
-var Appliers = mongoose.model("appliers", ApplierSchema);
 
-export {Users, Clubs, Appliers};
+export {Users, Clubs};
 
 export default db;

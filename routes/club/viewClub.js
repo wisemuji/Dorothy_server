@@ -8,5 +8,10 @@ module.exports = (app, Clubs, Users, rndstring)=>{
        res.render('student_view', {item: club});
 
   })
+  .post('/aa', async (req,res)=>{
+    var result = await Clubs.find()
+    res.status(200).json(result)
+
+  })
 
 };
