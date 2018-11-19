@@ -43,7 +43,10 @@ app.get('/', function (req, res) {
 app.get('/:page', function (req, res) {
   const page = req.params.page;
   if(page == 'index') res.redirect('/');
-  res.render(page + '');
+  Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
+    if(err) throw err;
+    res.render(page + '', {contents: rawContents});
+   });
 });
 //서버 실행
 const PORT = 9999;
