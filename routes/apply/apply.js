@@ -2,7 +2,11 @@ module.exports = (app, Clubs, rndstring)=>{
   app.get('/apply/:token', async (req,res)=>{
       const token = req.params.token;
       const club = await Clubs.findOne({token: token});
-       res.render('form', {item: club});
+        if(req.session.logined) {
+         res.render('form', {item: club, id: req.session.user_id });
+        } else {
+          res.render('form', {item: club});
+        }
 
   })
   app.post('/apply/:token', async (req,res)=>{

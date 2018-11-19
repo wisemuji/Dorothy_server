@@ -22,6 +22,7 @@ module.exports = (app, Users, rndstring)=>{
     else{
       req.session.logined = true;
       req.session.user_id = result.id;
+      req.session.club = result.club;
       // return res.status(200).json(result);
       res.redirect("/");
     }

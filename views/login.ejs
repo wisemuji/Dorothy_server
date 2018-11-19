@@ -28,9 +28,18 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="http://localhost:9999/index.ejs#calendar">캘린더</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="http://localhost:9999/login">로그인</a>
-                    </li>
+                    <%if(!id){%>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="http://localhost:9999/login">로그인</a>
+                      </li>
+                    <% } else { %>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="http://localhost:9999/leader_view">동아리 관리</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="http://localhost:9999/logout">로그아웃</a>
+                      </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
