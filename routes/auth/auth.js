@@ -10,13 +10,21 @@ module.exports = (app, Users, rndstring)=>{
       if(e instanceof ValidationError) return res.status(400).json({message: e.message});
       if(e instanceof paramsError) return res.status(400).json({message: e.message});
     }
-    res.status(200).json(user);
+    // res.status(200).json(user);
+    res.redirect("/");
   })
   .post('/signin', async(req,res)=>{
     console.log('post:signin');
     var result = await Users.findOne(req.body)
-    if(!result) return res.status(404).json({message : "Not Found"})
-    else return res.status(200).json(result)
+    if(!result) {
+    	res.send('<script type="text/javascript">alert("아이디 혹은 비밀번호가 맞지 않습니다."); history.back();</script>');
+    }
+    else{
+      req.session.logined = true;
+      req.session.user_id = result.id;
+      // return res.status(200).json(result);
+      res.redirect("/");
+    }
   })
   .post('/delUser', async (req,res)=>{
     console.log('post:delUser');
@@ -29,5 +37,10 @@ module.exports = (app, Users, rndstring)=>{
     var result = await Users.find()
     res.send(result)
   })
+  .get('/logout', (req, res) => {
+    req.session.destroy();
+    res.clearCookie('sid');
+    res.redirect('/');
+  });
 
 };
