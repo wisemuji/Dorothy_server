@@ -17,8 +17,18 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       // }
       res.redirect("/");
   })
-  .post('/deleteClub', async (req,res)=>{
+  .post('/deleteClubAll', async (req,res)=>{
       Clubs.remove({}, function(err) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.end('success');
+            }
+          }
+      );
+    })
+  .post('/deleteClub', async (req,res)=>{
+      Clubs.remove({token: req.body.token}, function(err) {
             if (err) {
                 console.log(err)
             } else {

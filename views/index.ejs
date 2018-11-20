@@ -131,13 +131,20 @@
         $(function() {
             $('#calendar').fullCalendar({
                 // 이벤트 작성 구문임!
-                // events: [
-                //     {
-                //         title: "Java seminar",
-                //         start: "2018-08-27",
-                //         end: new Date()
-                //     }
-                // ]
+                events: [
+
+                    <%if(contents.length>0){%>
+                      <%var i = 0;%>
+                      <%contents.forEach(function(item){%>
+                      <%i++;%>
+                      {
+                          title: '<%=item.name%>',
+                          start: new Date('<%=item.interview_date%>'),
+                          end: new Date('<%=item.interview_date%>')
+                      },
+                      <%})%>
+                    <%}%>
+                ]
             })
         });
     </script>
