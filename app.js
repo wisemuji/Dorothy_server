@@ -29,8 +29,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //module setting
-const Users = require("./mongo");
-const Clubs = require("./mongo");
+const Users = require("./mongo/usersSchema");
+const Clubs = require("./mongo/clubSchema");
+const db = require("./mongo");
+
 //module setting
 // import { Users, Hackathons } from './mongo';
 // require('./func')
