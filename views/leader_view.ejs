@@ -182,9 +182,11 @@
             </div>
 
             <center><div class="btns">
-                    <input type="button" value="취소"class="form-cansle">
-                    <input type="submit" value="신청하기"class="form-submit">
+                    <input type="reset" value="취소"class="form-cansle">
+                    <input type="button" value="신청자 조회"class="form-cansle" onclick="location.href='/vertify/<%=item.token%>'">
+                    <input type="submit" value="완료"class="form-submit">
             </div></center>
+
         </form>
     </div>
 

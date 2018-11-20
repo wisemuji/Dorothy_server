@@ -113,7 +113,8 @@ textarea {
     outline: none;
     -webkit-appearance: none;
     padding: 0;
-    margin-right: 20px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .pic-btn input[type="file"] {  /* 파일 필드 숨기기 */
