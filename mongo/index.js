@@ -50,4 +50,4 @@ var Clubs = mongoose.model("clubs", ClubSchema);
 module.exports = Users;
 module.exports = Clubs;
 
-module.exports default db;
+// module.exports default db;
