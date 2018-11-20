@@ -47,6 +47,6 @@ require('./err')(UsersSchema, ClubSchema);
 var Users = mongoose.model("users", UsersSchema);
 var Clubs = mongoose.model("clubs", ClubSchema);
 
-export {Users, Clubs};
+module.export {Users, Clubs};
 
-export default db;
+module.export default db;
