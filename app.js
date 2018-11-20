@@ -1,11 +1,12 @@
-import express from 'express'
-import session from 'express-session'
-import bodyParser from 'body-parser'
-import rndstring from 'randomstring'
-import path from 'path'
-import mongoose from 'mongoose'
-import firebase from 'firebase'
-import cookieSession from 'cookie-session'
+import express from 'express';
+import session from 'express-session';
+import bodyParser from 'body-parser';
+import rndstring from 'randomstring';
+import path from 'path';
+import mongoose from 'mongoose';
+import firebase from 'firebase';
+import cookieSession from 'cookie-session';
+import multer from 'multer';
 //서버 생성
 let app = express();
 

@@ -20,7 +20,9 @@ var UsersSchema = mongoose.Schema({
 });
 
 var ClubSchema = mongoose.Schema({
-  img: {type : String}, //활동 사진
+  img: [{
+    data: Buffer, contentType: String
+  }], //활동 사진
   name: {type : String}, //동아리 이름
   introduction: {type : String}, //소개
   goal: {type : String}, //목표
