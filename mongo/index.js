@@ -28,6 +28,7 @@ var ClubSchema = mongoose.Schema({
   reason: {type : String}, //지원해야 하는 이유
   etc: {type : String}, //기타 공지
   date: {type: Date, default: Date.now}, //수정 날짜
+  interview_date: {type: Date}, //면접 날짜
   token : {type : String}, //club token
   appliers : [{
     id: {type : Number}, //학번
