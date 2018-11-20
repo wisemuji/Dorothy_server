@@ -29,7 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //module setting
-import { Users, Clubs } from './mongo';
+const Users = require("./mongo");
+const Clubs = require("./mongo");
 //module setting
 // import { Users, Hackathons } from './mongo';
 // require('./func')
