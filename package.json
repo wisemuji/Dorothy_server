@@ -21,7 +21,6 @@
     "path": "*",
     "randomstring": "*",
     "nodemon": "*",
-    "babel": "*",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
