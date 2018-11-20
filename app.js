@@ -30,7 +30,7 @@ app.set('view engine', 'ejs');
 
 //module setting
 var Users = require("./mongo/usersSchema");
-var Clubs = require("./mongo/clubSchema");
+var Clubs = require("./mongo/clubsSchema");
 const db = require("./mongo");
 
 //module setting
