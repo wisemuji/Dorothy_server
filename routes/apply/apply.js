@@ -5,7 +5,7 @@ module.exports = (app, Clubs, rndstring)=>{
         if(req.session.logined) {
          res.render('form', {item: club, id: req.session.user_id });
         } else {
-          res.render('form', {item: club});
+          res.render('form', {item: club, id: false});
         }
 
   })

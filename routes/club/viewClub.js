@@ -7,13 +7,15 @@ module.exports = (app, Clubs, Users, rndstring)=>{
     	res.send('<script type="text/javascript">alert("권한이 없습니다."); history.back();</script>');
     else {
       if(!club){
+        console.log('!club');
         const new_club = new Clubs;
         new_club.token = req.session.club;
         res.render('leader_view', {item: new_club, id: req.session.user_id });
       }
-      else
-       res.render('leader_view', {item: club, id: req.session.user_id });
-       console.log(club.name);
+      else{
+        console.log('club');
+        res.render('leader_view', {item: club, id: req.session.user_id });
+     }
     }
   })
   .get('/view/:token', async (req,res)=>{

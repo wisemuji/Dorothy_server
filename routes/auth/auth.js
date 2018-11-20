@@ -3,6 +3,7 @@ module.exports = (app, Users, rndstring)=>{
     console.log('post:signup');
     var user = new Users(req.body);
     user.token = rndstring.generate(40);
+    user.club = rndstring.generate(40);
     try {
       var result = await user.save();
     }catch(e){
