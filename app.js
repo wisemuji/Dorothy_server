@@ -1,12 +1,11 @@
 const express = require("express");
-import session from 'express-session';
-import bodyParser from 'body-parser';
-import rndstring from 'randomstring';
-import path from 'path';
-import mongoose from 'mongoose';
-import firebase from 'firebase';
-import cookieSession from 'cookie-session';
-import multer from 'multer';
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const rndstring = require("randomstring");
+const path = require("path");
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const multer = require("multer");
 //서버 생성
 let app = express();
 
