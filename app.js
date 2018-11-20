@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require("express");
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import rndstring from 'randomstring';
