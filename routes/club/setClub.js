@@ -1,4 +1,4 @@
-import to from 'await-to-js';
+const to = require("await-to-js");
 
 module.exports = (app, Clubs, Users, rndstring)=>{
   app.post('/setClub', async (req,res)=>{
