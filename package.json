@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test mocha ./app.spec.js",
-    "start": "nodemon app.js --exec babel-node"
+    "start": "node app.js"
   },
   "dependencies": {
     "await-to-js": "^2.0.1",
@@ -20,7 +20,6 @@
     "multer": "^1.4.1",
     "path": "*",
     "randomstring": "*",
-    "nodemon": "*",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
