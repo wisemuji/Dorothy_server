@@ -45,8 +45,8 @@ const Clubs = require("./mongo");
 // });
 
 //서버 실행
-const PORT = 9999;
-app.listen( function(){
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, function(){
   console.log('server running');
 });
 
