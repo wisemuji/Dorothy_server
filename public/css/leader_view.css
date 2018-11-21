@@ -78,6 +78,16 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pic-btn {
+    display: inline-block;
+    position:absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
 }
 
 .pic-btn label {
@@ -164,3 +174,8 @@ textarea {
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
     }
+  .areaimg {
+      position: relative;
+      max-height: 159px;
+      z-index: 0;
+  }

@@ -56,7 +56,8 @@
             <hr width="70px">
             <div class="sec-name">MIBS</div>
             <div class="search-box">
-                <textarea></textarea>
+              <input type="text" placeholder="신청자 이름" name="search">
+              <button type="submit"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
             </div>
 
               <%if(item.appliers.length>0){%>
@@ -77,16 +78,6 @@
                     <td colspan="5">아직 신청자가 없습니다.</td>
                 </tr>
               <%}%>
-            </div>
-
-             <div class="page">
-                <ul class="pagination">
-                    <img src="https://dorothy-mirim.herokuapp.com/assets/left.png" class="page-left">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <img src="https://dorothy-mirim.herokuapp.com/assets/right.png" class="page-right">
-                </ul>
             </div>
         </div>
     </section>

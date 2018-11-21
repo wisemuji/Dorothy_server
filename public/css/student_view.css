@@ -1,5 +1,4 @@
 .view-img {
-    background-image: url('../assets/img_1_ori.png');
     max-height: 1010px;
     overflow: hidden;
     width: 100%;
@@ -13,8 +12,21 @@
     position: relative;
     margin-top: 288px;
     text-align: center;
-    font-size: 60px;
     color: white;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    top: 288px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 60px;
+    height: 300px;
 }
 
 .content {
@@ -53,4 +65,8 @@
     -webkit-appearance: none;
     padding: 0;
     margin: 172px 0px 113px 0px;
+}
+#carouselExampleIndicators {
+    z-index: 5;
+    position: relative;
 }

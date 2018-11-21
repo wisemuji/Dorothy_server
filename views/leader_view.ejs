@@ -78,31 +78,31 @@
                     <div class="pic-area">
                         <div class="pic-btn">
                             <label for="image1">+</label>
-                            <input type="file" id="image1" name='image1'>
+                            <input type="file" id="image1" name='image1' onchange="readURL(this, 1);">
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
                             <label for="image2">+</label>
-                            <input type="file" id="image2" name='image2'>
+                            <input type="file" id="image2" name='image2' onchange="readURL(this, 2);">
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
                             <label for="image3">+</label>
-                            <input type="file" id="image3" name='image3'>
+                            <input type="file" id="image3" name='image3' onchange="readURL(this, 3);">
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
                             <label for="image4">+</label>
-                            <input type="file" id="image4" name='image4'>
+                            <input type="file" id="image4" name='image4' onchange="readURL(this, 4);">
                         </div>
                     </div>
                     <div class="pic-area" style="margin-right: 0;">
                         <div class="pic-btn">
                             <label for="image5">+</label>
-                            <input type="file" id="image5" name='image5'>
+                            <input type="file" id="image5" name='image5' onchange="readURL(this, 5);">
                         </div>
                     </div>
                 </div>
@@ -195,5 +195,25 @@
     <script src="https://dorothy-mirim.herokuapp.com/js/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+        function readURL(input, num) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                 var cname = ".area" + num;
+                reader.onload = function (e) {
+                    // $('.area1').css("background-image", "url("+e.target.result+")");
+                    if ($('.img'+num).length) {
+                        $('.img'+num).attr('src', '');
+                    }
+                     $("<img />", {
+                         "src": e.target.result,
+                             "class": "areaimg img"+num,
+                             "style": "heigth: 100%"
+                     }).appendTo($(cname));
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 </html>
