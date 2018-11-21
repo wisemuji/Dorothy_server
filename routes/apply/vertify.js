@@ -9,5 +9,14 @@ module.exports = (app, Clubs)=>{
       res.render('apply_view', {item: club, id: req.session.user_id });
     }
 
-});
+  });
+  app.get('/remove_applier/:token', async (req,res)=>{
+    console.log('token: '+req.params.token);
+    Clubs.updateOne( { 'appliers.token': req.params.token },
+     { $pull: { appliers: { token: req.params.token } } } ,
+      function (err, res) {
+          if(err) console.log('2'+err);
+      });
+  	res.send('<script type="text/javascript">alert("삭제가 완료되었습니다.");history.back()</script>');
+  });
 }
