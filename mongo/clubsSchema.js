@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 var ClubSchema = mongoose.Schema({
-  img: [{
-    data: Buffer, contentType: String
+  images: [{
+    id: {type : String}, //id
+    url: {type : String} //url
   }], //활동 사진
   name: {type : String}, //동아리 이름
   introduction: {type : String}, //소개

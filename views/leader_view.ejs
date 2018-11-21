@@ -55,7 +55,7 @@
 
     <!-- form -->
     <div class="container" style="padding: 0;">
-        <form action="setClub" method="post" style="margin-top: 190px;">
+        <form action="setClub" method="post" style="margin-top: 190px;" enctype="multipart/form-data">
             <textarea name="token" style=" display:none;"><%=item.token%></textarea>
             <!-- 동아리 이름 -->
             <div class="content" style="padding-top: 23px;">
@@ -77,32 +77,32 @@
                 <div class="contents pic incontent">
                     <div class="pic-area">
                         <div class="pic-btn">
-                            <label for="ex_file">+</label>
-                            <input type="file" id="ex_file">
+                            <label for="image1">+</label>
+                            <input type="file" id="image1" name='image1'>
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
-                            <label for="ex_file">+</label>
-                            <input type="file" id="ex_file">
+                            <label for="image2">+</label>
+                            <input type="file" id="image2" name='image2'>
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
-                            <label for="ex_file">+</label>
-                            <input type="file" id="ex_file">
+                            <label for="image3">+</label>
+                            <input type="file" id="image3" name='image3'>
                         </div>
                     </div>
                     <div class="pic-area">
                         <div class="pic-btn">
-                            <label for="ex_file">+</label>
-                            <input type="file" id="ex_file">
+                            <label for="image4">+</label>
+                            <input type="file" id="image4" name='image4'>
                         </div>
                     </div>
                     <div class="pic-area" style="margin-right: 0;">
                         <div class="pic-btn">
-                            <label for="ex_file">+</label>
-                            <input type="file" id="ex_file">
+                            <label for="image5">+</label>
+                            <input type="file" id="image5" name='image5'>
                         </div>
                     </div>
                 </div>
