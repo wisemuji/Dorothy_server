@@ -1,0 +1,131 @@
+#mainNav {
+    background-color: white;
+}
+ hr {
+    border: 0;
+    height: 5px;
+    background: black;
+    padding: 0px;
+    margin-top: 208px;
+}
+ .sec-name {
+    font-size: 46px;
+    height: 46px;
+    margin-top: 25px;
+    margin-bottom: 18px;
+    font-weight: 800;
+}
+ .sec-explain {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 87px;
+}
+ .club-row {
+    margin-bottom: 22px;
+}
+ .club-col {
+    width: 381px;
+    height: 468px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0px 10px;
+    text-align: left;
+    background-color: #fff;
+}
+ .club-img {
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    margin: 48px 39px 40px 40px;
+}
+ .appli-name{
+    width: 100%;
+    height: auto;
+    font-size: 23px;
+    margin-top: 37px;
+    margin-left: 44px;
+    font-weight: 800;
+}
+ .page {
+    margin-top: 70px;
+    display: inline-block;
+    font-size: 20px;
+}
+ .page li {
+    text-indent: 0;
+    margin: 0 2px;
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    margin: 0px 10px 0px 10px;
+    background-color: #dedede;
+}
+ .page-right, .page-left {
+    margin: 0px 31px;
+}
+ #calendar {
+    margin-bottom: 216px;
+}
+ .fc-scroller {
+    height: 605px;
+}
+ .fc-widget-header {
+    font-size: 18px;
+}
+ .fc-day-header {
+    padding: 16px 0px;
+}
+ .fc-sun {
+    color: #ff4141;
+    border-right: none;
+}
+ .fc-sat {
+    color: #414eff;
+}
+ .search-box {
+    margin-bottom: 107px;
+    margin-top: 94px;
+}
+ textarea {
+    width: 380px;
+    height: 56px;
+    border-radius: 5px;
+    box-shadow: 0px 11px 48px 0 rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    resize: none;
+}
+ .appli-pr, .appli-reason, .appli-close {
+    width: 287px;
+    height: 143px;
+    margin-top: 28px;
+    margin-left: 45px;
+    word-break:break-all;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.78;
+}
+ .appli-reason {
+    margin-top: 39px;
+}
+ .appli-title {
+    display: flex;
+}
+ .appli-close {
+    width: 100%;
+    height: auto;
+    margin: 37px 45px 0px 0px;
+    float: right;
+    text-align: right;
+    font-weight: 800;
+    display: none;
+}
+ .club-col:hover .appli-close {
+    display: block;
+} 

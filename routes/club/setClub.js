@@ -12,7 +12,7 @@ const storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: "dorothy",
   allowedFormats: ["jpg", "png"],
-  transformation: [{ width: 500, height: 500, crop: "limit" }]
+  transformation: [{ width: 1500, height: 1500, crop: "limit" }]
 });
 const upload = multer({ storage: storage });
 const fields = [

@@ -58,4 +58,5 @@ require('./routes/auth/auth')(app, Users, rndstring);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
 require('./routes/apply/apply')(app, Clubs, rndstring);
+require('./routes/apply/vertify')(app, Clubs);
 require('./routes/index')(app, Clubs);
