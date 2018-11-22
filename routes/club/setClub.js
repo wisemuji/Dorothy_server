@@ -26,7 +26,7 @@ const SIZE = 5;
 
 module.exports = (app, Clubs, Users, rndstring)=>{
   app.post('/setClub', upload.fields(fields), async (req,res)=>{
-    // console.log("post:setClub")
+    console.log("post:setClub")
     console.log(req.body) // to see what is returned to you
     console.log(req.files) // to see what is returned to you
     const data = req.body;

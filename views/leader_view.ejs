@@ -75,31 +75,31 @@
                     <label for="pic">동아리 사진</label>
                 </div>
                 <div class="contents pic incontent">
-                    <div class="pic-area">
+                    <div class="pic-area area1">
                         <div class="pic-btn">
                             <label for="image1">+</label>
                             <input type="file" id="image1" name='image1' onchange="readURL(this, 1);">
                         </div>
                     </div>
-                    <div class="pic-area">
+                    <div class="pic-area area2">
                         <div class="pic-btn">
                             <label for="image2">+</label>
                             <input type="file" id="image2" name='image2' onchange="readURL(this, 2);">
                         </div>
                     </div>
-                    <div class="pic-area">
+                    <div class="pic-area area3">
                         <div class="pic-btn">
                             <label for="image3">+</label>
                             <input type="file" id="image3" name='image3' onchange="readURL(this, 3);">
                         </div>
                     </div>
-                    <div class="pic-area">
+                    <div class="pic-area area4">
                         <div class="pic-btn">
                             <label for="image4">+</label>
                             <input type="file" id="image4" name='image4' onchange="readURL(this, 4);">
                         </div>
                     </div>
-                    <div class="pic-area" style="margin-right: 0;">
+                    <div class="pic-area area5" style="margin-right: 0;">
                         <div class="pic-btn">
                             <label for="image5">+</label>
                             <input type="file" id="image5" name='image5' onchange="readURL(this, 5);">
@@ -182,7 +182,7 @@
             </div>
 
             <center><div class="btns">
-                    <input type="reset" value="취소"class="form-cansle">
+                    <input type="reset" value="취소"class="form-cansle" onclick="history.back();">
                     <input type="button" value="신청자 조회"class="form-cansle" onclick="location.href='/vertify/<%=item.token%>'">
                     <input type="submit" value="완료"class="form-submit">
             </div></center>
