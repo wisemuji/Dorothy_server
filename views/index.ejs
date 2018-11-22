@@ -119,6 +119,10 @@
 
     <script>
         $(function() {
+          var bgColor = ['9dcce0', 'cdaca7', 'eecec3', 'cadfe4', 'aac9ce', 'b6b4c2', 'c9bbc8', 'e5c1cd', 'd4e0fa', 'bcd5f3', 'ddc3e0'];
+          console.log(bgColor[0]);
+          console.log(Math.floor(Math.random() * bgColor.length));
+          console.log(bgColor[Math.floor(Math.random() * bgColor.length)]);
             $('#calendar').fullCalendar({
                 timeFormat: 'a hh:mm',
                 // 이벤트 작성 구문임!
@@ -131,7 +135,8 @@
                       {
                           title: '<%=item.name%>',
                           start: new Date('<%=item.interview_date%>'),
-                          end: new Date('<%=item.interview_date%>')
+                          end: new Date('<%=item.interview_date%>'),
+                          color: '#'+bgColor[Math.floor(Math.random() * bgColor.length)]
                       },
                       <%})%>
                     <%}%>
