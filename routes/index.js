@@ -6,7 +6,7 @@ module.exports = function(app, Clubs){
   })
   .get('/', function (req, res) {
      // res.sendFile(__dirname + '/views/index.html');
-     Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
+     Clubs.find({}).sort({date:-1}).exec(function(err, rawContents){
        if(err) throw err;
          if(req.session.logined) {
           res.render('index', {contents: rawContents, id: req.session.user_id });
