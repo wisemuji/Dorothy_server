@@ -56,8 +56,8 @@
             <hr width="70px">
             <div class="sec-name">MIBS</div>
             <div class="search-box">
-              <input type="text" placeholder="신청자 이름" name="search">
-              <button type="submit"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
+              <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
+              <button type="button" onclick="changeFocus(); " id="search-btn"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
             </div>
 
               <%if(item.appliers.length>0){%>
@@ -84,5 +84,30 @@
      <script src="https://dorothy-mirim.herokuapp.com/js/grayscale.min.js"></script>
     <script src="https://dorothy-mirim.herokuapp.com/js/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <br><br><br>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $("#search").keyup(function(key) {
+            if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+                changeFocus();
+            }
+            $( '.appli-name' ).css( 'color', 'black' );
+              var k = $(this).val();
+              console.log(k);
+              if(k!="")
+                $( '.appli-name:contains("'+ k +'")' ).css( 'color', 'red' );
+                // [style*="width: 555px"]
+          })
+
+      })
+      $('#search-btn').click(function() {
+          changeFocus();
+       });
+       function changeFocus() {
+         $('html, body').animate({
+           scrollTop: $('div[style*="color: red"]').offset().top
+         }, 'slow');
+       }
+    </script>
 </body>
 </html>
