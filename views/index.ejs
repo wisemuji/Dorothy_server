@@ -93,7 +93,7 @@
               <%i++;%>
 
                   <div class="club-col" onclick="location.href='/view/<%=item.token%>'">
-                      <img class="club-img" src="https://dorothy-mirim.herokuapp.com/assets/club-img.jpg">
+                      <img class="club-img" src='<%=item.images[0].url%>'>
                       <div class="club-name"><%=item.name%></div>
                   </div>
               <%})%>
