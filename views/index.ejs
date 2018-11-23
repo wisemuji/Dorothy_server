@@ -93,7 +93,11 @@
               <%i++;%>
 
                   <div class="club-col" onclick="location.href='/view/<%=item.token%>'">
+                    <%if(typeof item.images[0] != 'undefined'){%>
                       <img class="club-img" src='<%=item.images[0].url%>'>
+                    <%} else {%>
+                      <img class="club-img" src='https://dorothy-mirim.herokuapp.com/assets/img_1.png'>
+                    <%}%>
                       <div class="club-name"><%=item.name%></div>
                   </div>
               <%})%>

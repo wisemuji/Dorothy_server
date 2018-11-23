@@ -51,26 +51,26 @@ body {
     background-color: #f5f5f5;
     padding: 0px 8px 0px 20px
 }
-  
+
 #mainNav .navbar-toggler {
     color: rgba(0,0,0,.5);
 }
-  
+
 #mainNav .navbar-toggler:focus {
     outline: none;
 }
-  
+
 #mainNav .navbar-brand {
     color: #000000;
     font-weight: 700;
 }
-  
+
 #mainNav .navbar-nav .nav-item:hover {
     color: fade(white, 80%);
     outline: none;
     background-color: transparent;
 }
-  
+
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
     outline: none;
     background-color: transparent;
@@ -155,8 +155,7 @@ hr {
 
 .club-img {
     border-radius: 50%;
-    width: 280px;
-    height: 280px;
+    max-height: 280px;
     margin: 48px 39px 40px 40px;
 }
 
