@@ -1,6 +1,5 @@
 module.exports = (app, Users, rndstring)=>{
   app.post('/signup', async(req,res)=>{
-    console.log('post:signup');
     var user = new Users(req.body);
     user.token = rndstring.generate(40);
     user.club = rndstring.generate(40);
@@ -11,11 +10,9 @@ module.exports = (app, Users, rndstring)=>{
       if(e instanceof ValidationError) return res.status(400).json({message: e.message});
       if(e instanceof paramsError) return res.status(400).json({message: e.message});
     }
-    // res.status(200).json(user);
     res.redirect("/");
   })
   .post('/signin', async(req,res)=>{
-    console.log('post:signin');
     var result = await Users.findOne(req.body)
     if(!result) {
     	res.send('<script type="text/javascript">alert("아이디 혹은 비밀번호가 맞지 않습니다."); history.back();</script>');
@@ -24,14 +21,11 @@ module.exports = (app, Users, rndstring)=>{
       req.session.logined = true;
       req.session.user_id = result.id;
       req.session.club = result.club;
-      // return res.status(200).json(result);
       res.redirect("/");
     }
   })
   .post('/delUser', async (req,res)=>{
-    console.log('post:delUser');
-    var result = await Users.deleteOne({token : req.body.token})
-      console.log(req.body);
+    var result = await Users.deleteOne({token : req.body.token});
     if(!result.ok) return res.status(500).json({message : "ERR!"})
     else return res.status(200).json({message : "success!"})
   })

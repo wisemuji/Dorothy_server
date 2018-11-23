@@ -23,7 +23,7 @@ module.exports = (app, Clubs, rndstring)=>{
               if(err) throw err;
           });
       });
-      res.redirect('/view/'+req.params.token);
+    	res.send('<script type="text/javascript">alert("신청이 완료되었습니다."); history.back();</script>');
 
   })
 

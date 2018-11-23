@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
 module.exports = function(app, Clubs){
-  app.post('/join-form', async (req,res)=>{
-    console.log(req.body.id+"");
-  })
-  .get('/', function (req, res) {
-     // res.sendFile(__dirname + '/views/index.html');
-     Clubs.find({}).sort({date:-1}).exec(function(err, rawContents){
+  app.get('/', function (req, res) {
+     Clubs.find({}).sort({date:-1}).exec(function(err, rawContents){ //오래된 순으로 정렬
        if(err) throw err;
          if(req.session.logined) {
           res.render('index', {contents: rawContents, id: req.session.user_id });

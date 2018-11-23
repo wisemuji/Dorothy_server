@@ -7,13 +7,11 @@ module.exports = (app, Clubs, Users, rndstring)=>{
     	res.send('<script type="text/javascript">alert("권한이 없습니다."); history.back();</script>');
     else {
       if(!club){
-        console.log('!club');
         const new_club = new Clubs;
         new_club.token = req.session.club;
         res.render('leader_view', {item: new_club, id: req.session.user_id });
       }
       else{
-        console.log('club');
         res.render('leader_view', {item: club, id: req.session.user_id });
      }
     }
@@ -22,10 +20,8 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       const token = req.params.token;
       const club = await Clubs.findOne({token: token});
         if(req.session.logined) {
-        console.log("logined");
          res.render('student_view', {item: club, id: req.session.user_id });
         } else {
-        console.log("not logined");
           res.render('student_view', {item: club, id: false});
         }
 
@@ -34,6 +30,6 @@ module.exports = (app, Clubs, Users, rndstring)=>{
     var result = await Clubs.find()
     res.status(200).json(result)
 
-  })
+  });
 
 };
