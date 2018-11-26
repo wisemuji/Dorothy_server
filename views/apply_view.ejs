@@ -68,8 +68,8 @@
                           <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
                           <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
                       </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
-                      <div class="appli-pr"><%=element.pr%></div>
-                      <div class="appli-reason"><%=element.reason%></div>
+                      <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
+                      <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
                   </div>
                   <%i++;%>
                 <%})%>
@@ -108,6 +108,16 @@
            scrollTop: $('div[style*="color: red"]').offset().top
          }, 'slow');
        }
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          var str = $("#apply-pr").text()
+          str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+          $("#apply-pr").html(str);
+          str = $("#apply-reason").text()
+          str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+          $("#apply-reason").html(str);
+      });
     </script>
 </body>
 </html>
