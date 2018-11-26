@@ -155,7 +155,8 @@ hr {
 
 .club-img {
     border-radius: 50%;
-    max-height: 280px;
+    width: 280px;
+    height: 280px;
     margin: 48px 39px 40px 40px;
 }
 
