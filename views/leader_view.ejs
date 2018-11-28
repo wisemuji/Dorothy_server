@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="contents intro incontent">
-                    <textarea name="introduction" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.introduction%></textarea>
+                    <textarea name="introduction" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.introduction%></textarea>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
                     <label for="goal">동아리 목표</label>
                 </div>
                 <div class="contents goal incontent">
-                    <textarea name="goal" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.goal%></textarea>
+                    <textarea name="goal" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.goal%></textarea>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
                     <label for="activity">동아리<br>활동 내용</label>
                 </div>
                 <div class="contents activity incontent">
-                    <textarea name="activity" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.activity%></textarea>
+                    <textarea name="activity" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.activity%></textarea>
                 </div>
             </div>
 
@@ -149,7 +149,7 @@
                     <label for="reason">신입생들이<br>지원해야하는<br>이유</label>
                 </div>
                 <div class="contents reason incontent">
-                    <textarea name="reason" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.reason%></textarea>
+                    <textarea name="reason" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.reason%></textarea>
                 </div>
             </div>
             <!-- 면접 날짜 -->
@@ -169,7 +169,7 @@
                 var date = today.getDate();
                 var h = today.getHours();
                 var m = today.getMinutes();
-                if(h == 0) h = '00';            
+                if(h == 0) h = '00';
                 if(m == 0) m = '00';
                 document.getElementById("interview").value = year+"-"+month+"-"+date+"T"+h+":"+m;
             </script>
@@ -180,7 +180,7 @@
                     <label for="date">기타 공지</label>
                 </div>
                 <div class="contents date incontent">
-                    <textarea name="etc" style="width: 880px; height: 333px; padding: 8px 20px;" required><%=item.etc%></textarea>
+                    <textarea name="etc" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.etc%></textarea>
                 </div>
             </div>
 
