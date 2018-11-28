@@ -16,6 +16,9 @@ module.exports = (app, Clubs, Users, rndstring)=>{
      }
     }
   })
+  .get('/root_view', async (req,res)=>{
+    res.render('root', {id: req.session.user_id });
+  })
   .get('/view/:token', async (req,res)=>{
       const token = req.params.token;
       const club = await Clubs.findOne({token: token});

@@ -39,9 +39,15 @@
                           <a class="nav-link js-scroll-trigger" href="login">로그인</a>
                       </li>
                     <% } else { %>
+                      <%if(id == 'root'){%>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="root_view">동아리 생성</a>
+                      </li>
+                      <%} else {%>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="leader_view">동아리 관리</a>
                       </li>
+                      <%}%>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
                       </li>
