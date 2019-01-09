@@ -1,7 +1,6 @@
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const rndstring = require("randomstring");
 const path = require("path");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
@@ -34,19 +33,6 @@ app.set('view engine', 'ejs');
 var Users = require("./mongo/usersSchema");
 var Clubs = require("./mongo/clubsSchema");
 const db = require("./mongo");
-
-//module setting
-// import { Users, Hackathons } from './mongo';
-// require('./func')
-// let passport = require('./passport')(Users, rndstring);
-//
-// //라우터
-// // let auth = require('./routes/auth/auth')(app);
-// // app.use('/', auth);
-// // var router = require('./routes')(app, Users);
-// app.post('/test', function(req, res){
-//   console.log(req.body);
-// });
 
 //서버 실행
 const PORT = process.env.PORT || 5000;
