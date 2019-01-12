@@ -32,7 +32,7 @@ app.set('view engine', 'ejs');
 //module setting
 var Users = require("./mongo/usersSchema");
 var Clubs = require("./mongo/clubsSchema");
-const db = require("./mongo");
+// const db = require("./mongo");
 
 //서버 실행
 const PORT = process.env.PORT || 5000;
