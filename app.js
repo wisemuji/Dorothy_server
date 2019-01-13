@@ -22,7 +22,7 @@ app.use(express.session({
   key: 'sid', // 세션키
   secret: 'secret', // 비밀키
   cookie: {
-    maxAge: 1000 * 60 * 60 // 쿠키 유효기간 1시간
+    maxAge: 1000 * 60 * 60 * 2 // 쿠키 유효기간 2시간
   }
 }));
 // view engine setup
