@@ -5,7 +5,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const cloudinary = require("cloudinary");
-const multiparty = require("multiparty");
 
 //서버 생성
 let app = express();
