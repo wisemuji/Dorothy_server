@@ -17,8 +17,10 @@ module.exports = (app, Users)=>{
         let mailOptions = {
             from: 's2017s25@e-mirim.hs.kr',    // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
             to: email ,                     // 수신 메일 주소
-            subject: 'Sending Email using Node.js',   // 제목
-            text: 'That was easy!'  // 내용
+            subject: '미림 동아리 통합 관리 솔루션, 도로시입니다. ',   // 제목
+            html: '<p>회원가입 완료를 위해 아래의 링크를 클릭해주세요 !</p>' +
+          "<a href='http://localhost:5000/auth/?email=" + email 
+          + "&token=1234'>인증하기</a>"
         };
 
         transporter.sendMail(mailOptions, function(error, info){

@@ -24,6 +24,12 @@ module.exports = (app, Users, rndstring)=>{
       res.redirect("/");
     }
   })
+  .get("/auth", function(req, res, next){
+    let email = req.query.email;
+    let token = req.query.token;
+    if(token="1234") console.log("회원가입 성공!");
+    // token이 일치하면 테이블에서 email을 찾아 회원가입 승인 로직 구현
+  })
   .post('/delUser', async (req,res)=>{
     var result = await Users.deleteOne({token : req.body.token});
     if(!result.ok) return res.status(500).json({message : "ERR!"})
