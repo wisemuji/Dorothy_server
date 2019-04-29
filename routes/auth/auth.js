@@ -1,8 +1,7 @@
 const nodemailer = require('nodemailer');
 const config = require('../../config.js');
 
-sendMail(email, token =>{
-  let email = req.body.email;
+function sendMail(email, token) {
   console.log(email);
 
   let transporter = nodemailer.createTransport({
@@ -29,11 +28,9 @@ sendMail(email, token =>{
           console.log('Email sent: ' + info.response);
       }
   });
+};
 
-  res.redirect("/");
-});
-
-module.exports = (app, Users, rndstring)=>{
+module.exports = (app, Users, rndstring, Confirm)=>{
   app.post('/signup', async(req,res)=>{
     var user = new Users(req.body);
     user.token = rndstring.generate(40);
@@ -59,11 +56,49 @@ module.exports = (app, Users, rndstring)=>{
       res.redirect("/");
     }
   })
-  .get("/auth", function(req, res, next){
-    let email = req.query.email;
-    let token = req.query.token;
-    if(token="1234") console.log("회원가입 성공!");
-    // token이 일치하면 테이블에서 email을 찾아 회원가입 승인 로직 구현
+  .post("/mailAuth", async (req,res) => {
+    let email = req.body.email;
+    let email_token = rndstring.generate(10);
+    await sendMail(email, email_token);
+    let confirm = await new Confirm({email:email, email_token:email_token});
+    console.log("emamlkmlkdlaed"+confirm);
+    await confirm.save((err)=>{
+      if(err) {
+        res.json({"message":"error!"}); 
+      } else {
+          res.json(confirm); 
+        }
+      });
+    
+    // client side coding
+    // const button = document.getElementById('myButton');
+    // button.addEventListener('click', function(e) {
+    //   console.log('button was clicked');
+
+    //   fetch('/clicked', {method: 'POST'})
+    //     .then(function(response) {
+    //       if(response.ok) {
+    //         console.log('Click was recorded');
+    //         return;
+    //       }
+    //       throw new Error('Request failed.');
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //     });
+    // });
+  })
+  .post("/mailAuthCheck", async (req,res) => {
+    await Confirm.findOne({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
+      if (err){            
+          res.send(err);
+      }else {
+          if( data == null){
+            res.status(401).send("not found");
+          }
+          else res.status(200).send("success!");
+      }
+    }); 
   })
   .post('/delUser', async (req,res)=>{
     var result = await Users.deleteOne({token : req.body.token});
@@ -72,6 +107,10 @@ module.exports = (app, Users, rndstring)=>{
   })
   .post('/aa', async(req,res)=>{
     var result = await Users.find()
+    res.send(result)
+  })
+  .post('/aaConfirm', async(req,res)=>{
+    var result = await Confirm.find()
     res.send(result)
   })
   .get('/logout', (req, res) => {
