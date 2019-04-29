@@ -94,7 +94,7 @@ module.exports = (app, Users, rndstring, Confirm)=>{
           res.send(err);
       }else {
           if( data == null){
-            res.status(401).send("not found");
+            res.status(400).send("not found");
           }
           else res.status(200).send("success!");
       }
