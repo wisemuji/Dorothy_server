@@ -31,7 +31,7 @@ function sendMail(email, token) {
   });
 };
 
-module.exports = (app, Users, Confirm)=>{
+module.exports = (app, Confirm)=>{
     app.post("/mailAuth", async (req,res) => {
         let email = req.body.email;
         let email_token = rndstring.generate(10);
@@ -39,9 +39,9 @@ module.exports = (app, Users, Confirm)=>{
         let confirm = await new Confirm({email:email, email_token:email_token});
         Confirm.findOneAndUpdate({email: email}, {email_token: email_token}, {upsert: true}, (err)=>{
           if(err) {
-            res.json({"message":"error!"}); 
+            res.status(400).json({"message":"error!"}); 
           } else {
-              res.json(confirm); 
+              res.status(200).json(confirm); 
             }
         });
     })

@@ -43,7 +43,8 @@ app.listen(PORT, function(){
 });
 
 require('./routes/auth/auth')(app, Users, rndstring, Confirm);
-require('./routes/auth/mail')(app, Users, Confirm);
+require('./routes/auth/mail')(app, Confirm);
+require('./routes/auth/phone')(app, Confirm);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
 require('./routes/apply/apply')(app, Clubs, rndstring);
