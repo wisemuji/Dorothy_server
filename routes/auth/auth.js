@@ -61,14 +61,14 @@ module.exports = (app, Users, rndstring, Confirm)=>{
     let email_token = rndstring.generate(10);
     await sendMail(email, email_token);
     let confirm = await new Confirm({email:email, email_token:email_token});
-    console.log("emamlkmlkdlaed"+confirm);
-    await confirm.save((err)=>{
+    Confirm.findOneAndUpdate({email: email}, {email_token: email_token}, {upsert: true}, (err)=>{
       if(err) {
         res.json({"message":"error!"}); 
       } else {
           res.json(confirm); 
         }
       });
+    })
     
     // client side coding
     // const button = document.getElementById('myButton');
@@ -87,7 +87,6 @@ module.exports = (app, Users, rndstring, Confirm)=>{
     //       console.log(error);
     //     });
     // });
-  })
   .post("/mailAuthCheck", async (req,res) => {
     await Confirm.findOne({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
       if (err){            
