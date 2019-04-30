@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 var AppliersSchema = mongoose.Schema({
   email: {type : String}, //이메일
+  phone: {type : String}, //휴대폰
   passwd: {type : String}, //비밀번호
   applied_clubs: [{
     token : String

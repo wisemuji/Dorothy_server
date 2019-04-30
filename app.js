@@ -42,7 +42,7 @@ app.listen(PORT, function(){
   console.log('server running');
 });
 
-require('./routes/auth/auth')(app, Users, rndstring, Confirm);
+require('./routes/auth/auth')(app, Users, Appliers, rndstring);
 require('./routes/auth/mail')(app, Confirm);
 require('./routes/auth/phone')(app, Confirm);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
