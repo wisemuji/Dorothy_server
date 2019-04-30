@@ -3,7 +3,7 @@ body {
     width: 100%;
     height: 100%;
     user-select: none;
-    min-width: 1010px;
+    /* min-width: 1010px; */
 }
 
 body {
@@ -51,26 +51,26 @@ body {
     background-color: #f5f5f5;
     padding: 0px 8px 0px 20px
 }
-
+  
 #mainNav .navbar-toggler {
     color: rgba(0,0,0,.5);
 }
-
+  
 #mainNav .navbar-toggler:focus {
     outline: none;
 }
-
+  
 #mainNav .navbar-brand {
     color: #000000;
     font-weight: 700;
 }
-
+  
 #mainNav .navbar-nav .nav-item:hover {
     color: fade(white, 80%);
     outline: none;
     background-color: transparent;
 }
-
+  
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
     outline: none;
     background-color: transparent;
@@ -147,21 +147,25 @@ hr {
     border-radius: 20px;
     display: inline-block;
     margin: 0px 25px 0px 25px;
+    padding-bottom: 20px;
 }
 
 .club-col:hover {
     background-color: #fff;
+    cursor:pointer
 }
 
 .club-img {
     border-radius: 50%;
-    width: 280px;
-    height: 280px;
-    margin: 48px 39px 40px 40px;
+    width: 250px;
+    height: 250px;
+    margin: 30px auto;
+    /* margin-bottom: 20px; */
 }
 
 .club-name {
     font-size: 23px;
+    text-align: center;
 }
 
 .page {
@@ -190,11 +194,12 @@ hr {
 }
 
 #calendar {
+    height: ;
     margin-bottom: 216px;
 }
 
 .fc-scroller {
-    height: 605px;
+    height: auto !important; 
 }
 
 .fc-widget-header {
@@ -212,4 +217,77 @@ hr {
 
 .fc-sat {
     color: #414eff;
+}
+#calendar {
+    width: 55%;
+}
+.center {
+    width: 80%;
+    margin: 0 auto;
+}
+
+li:hover, button:hover, input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover, a:hover, .pic-areahover:hover {
+    cursor: pointer;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus, input[type=text]:hover, input[type=password]:hover, textarea:hover {
+    background-color: #d4d4d4;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: black;
+}
+
+@media all and (max-width: 1650px) and (min-width: 1351px){
+    #calendar {
+        width: 65% !important;
+    }
+}
+
+@media all and (max-width: 1350px) and (min-width: 1036px){
+    #calendar {
+        width: 75% !important;
+    }
+}
+
+@media all and (max-width: 1035px) and (min-width: 771px){
+    .carousel-indicators, .carousel-control-prev, .carousel-control-next {
+        display: none;
+    }
+    #calendar {
+        width: 85% !important;
+    }
+}
+
+@media all and (max-width: 770px) {
+    .container {
+        margin: 0;
+        padding: 0;
+        max-width: none;
+    }
+    #mainNav {
+        padding: 15px !important;
+    }
+    .navbar-toggler {
+        margin: 5px !important;
+    }
+    .carousel-indicators, .carousel-control-prev, .carousel-control-next {
+        display: none;
+    }
+    .carousel-caption {
+        font-size: 40px !important;
+    }
+    .carousel {
+        margin-top: 70px !important;
+        margin-bottom: 30px !important;
+    }
+    .fc-today-button {
+        display: none;
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    #calendar {
+        width: 95% !important;
+    }
 }

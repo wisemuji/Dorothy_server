@@ -66,14 +66,14 @@ module.exports = (app, Confirm)=>{
     
     .post("/mailAuthCheck", async (req,res) => {
         await Confirm.findOne({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
-        if (err){            
-            res.send(err);
-        } else {
-            if( data == null){
-                res.status(400).send("not found");
+            if (err){            
+                res.send(err);
+            } else {
+                if( data == null){
+                    res.status(400).send("not found");
+                }
+                else res.status(200).send("success!");
             }
-            else res.status(200).send("success!");
-        }
         }); 
     })
     
