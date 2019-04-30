@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorothy</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -34,6 +35,9 @@
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/login">로그인</a>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/join">회원가입</a>
+                      </li>
                     <% } else { %>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/leader_view">동아리 관리</a>
@@ -50,7 +54,7 @@
 
     <!-- floating menu -->
     <nav class="floating-menu">
-        <a class="nav-link js-scroll-trigger" href="#page-top"><img src="https://dorothy-mirim.herokuapp.com/assets/up.png"></a>
+        <a class="nav-link js-scroll-trigger floating-link" href="#page-top"><img id="floating-img" src="https://dorothy-mirim.herokuapp.com/assets/up.png"></a>
     </nav>
 
     <!-- form -->
@@ -64,7 +68,7 @@
                     <label for="name">동아리 이름</label>
                 </div>
                 <div class="contents name incontent">
-                    <textarea name="name" style="width: 380px; height: 56px; padding: 8px 20px;" required><%=item.name%></textarea>
+                    <textarea name="name" style="padding: 8px 20px;" required><%=item.name%></textarea>
                 </div>
             </div>
 
@@ -156,9 +160,9 @@
             <div class="content" style="padding-top: 23px;">
                 <div class="index incontent">
                     <hr width="70px" style="padding: 0; margin: 0;">
-                    <label for="name">면접 날짜</label>
+                    <label for="date">면접 날짜</label>
                 </div>
-                <div class="contents name incontent">
+                <div class="contents date incontent">
                     <input type="datetime-local" id="interview" name="interview_date" required>
                 </div>
             </div>
@@ -175,9 +179,9 @@
             <div class="content">
                 <div class="index incontent">
                     <hr width="70px" style="padding: 0; margin: 0;">
-                    <label for="date">기타 공지</label>
+                    <label for="notice">기타 공지</label>
                 </div>
-                <div class="contents date incontent">
+                <div class="contents notice incontent">
                     <textarea name="etc" style="width: 810px; height: 333px; padding: 8px 20px;" required><%=item.etc%></textarea>
                 </div>
             </div>

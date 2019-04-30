@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorothy</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -34,6 +35,9 @@
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/login">로그인</a>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/join">회원가입</a>
+                      </li>
                     <% } else { %>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/leader_view">동아리 관리</a>
@@ -46,6 +50,7 @@
             </div>
         </div>
     </nav>
+</div>
     <div class="form-img"></div>
     <div class="container" style="max-width: 100%; padding: 0;">
         <div class="join-form">
@@ -58,15 +63,13 @@
                     <div class="form-pr"><label for="pr">자기소개</label><textarea id="pr" name="pr" required></textarea></div>
                     <div class="form-reason"><label for="reason">지원동기</label><textarea id="reason" name="reason" required></textarea></div>
                     <div class="btns">
-                        <input type="button" value="취소"class="form-cansle" onclick="history.back();">
+                        <input type="reset" value="취소"class="form-cansle" onclick="history.back();">
                         <input type="submit" value="제출"class="form-submit">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-    <input type="password">
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://dorothy-mirim.herokuapp.com/js/grayscale.min.js"></script>

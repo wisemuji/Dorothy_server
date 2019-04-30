@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorothy</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
@@ -20,7 +21,7 @@
     <div class="header">
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
+        <div class="container" style="padding-bottom: 50px;">
             <a class="navbar-brand js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/"><img src="https://dorothy-mirim.herokuapp.com/assets/Dorothy_logo.png"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -38,6 +39,9 @@
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/login">로그인</a>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/join">회원가입</a>
+                      </li>
                     <% } else { %>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/leader_view">동아리 관리</a>
@@ -50,6 +54,7 @@
             </div>
         </div>
     </nav>
+  </div>
      <!-- introduction section -->
     <section id="introduction" class="about-section text-center">
         <div class="container" style="padding-top: 71px; max-width: 100%;">
@@ -57,27 +62,35 @@
             <div class="sec-name"><%=item.name%></div>
             <div class="search-box">
               <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
-              <button type="button" onclick="changeFocus(); " id="search-btn"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
+              <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
             </div>
 
+            <div class="clubs"> 
+              <div class="club-row">
               <%if(item.appliers.length>0){%>
                 <%var i = 0;%>
                 <%item.appliers.forEach(function(element){%>
-                  <div class="club-col">
-                      <div class="appli-title">
-                          <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
-                          <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
-                      </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
-                      <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
-                      <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+                    <div class="club-col">
+                        <div class="appli-title">
+                            <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
+                            <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
+                        </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
+                        <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
+                        <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+                    </div>
+                  <%if(i%3==0&&i!=0){%>
                   </div>
+                  <div class="club-row">
+                  <%}%>
                   <%i++;%>
                 <%})%>
+              </div>
                 <%} else {%>
                 <tr>
                     <td colspan="5">아직 신청자가 없습니다.</td>
                 </tr>
               <%}%>
+              </div>
             </div>
         </div>
     </section>
