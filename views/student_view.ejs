@@ -7,18 +7,20 @@
     <title><%=item.name%></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://dorothy-mirim.herokuapp.com/css/styles.css" />
-    <link rel="stylesheet" href="https://dorothy-mirim.herokuapp.com/css/student_view.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/student_view.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-    <link rel="icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
-    <link rel="shortcut icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
+
+    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
 </head>
 <body id="page-top">
     <div class="header">
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container content-container">
-            <a class="navbar-brand js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/index"><img src="https://dorothy-mirim.herokuapp.com/assets/Dorothy_logo.png"></a>
+            <a class="navbar-brand js-scroll-trigger" href="/index"><img src="/assets/Dorothy_logo.png"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -26,24 +28,24 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/index.ejs#introduction">동아리 소개</a>
+                        <a class="nav-link js-scroll-trigger" href="/index.ejs#introduction">동아리 소개</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/index.ejs#calendar">캘린더</a>
+                        <a class="nav-link js-scroll-trigger" href="/index.ejs#calendar">캘린더</a>
                     </li>
                     <%if(!id){%>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/login">로그인</a>
+                          <a class="nav-link js-scroll-trigger" href="/login">로그인</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/join">회원가입</a>
+                          <a class="nav-link js-scroll-trigger" href="/join">회원가입</a>
                       </li>
                     <% } else { %>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/leader_view">동아리 관리</a>
+                          <a class="nav-link js-scroll-trigger" href="/leader_view">동아리 관리</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/logout">로그아웃</a>
+                          <a class="nav-link js-scroll-trigger" href="/logout">로그아웃</a>
                       </li>
                     <% } %>
                 </ul>
@@ -78,16 +80,16 @@
                   <%})%>
                 <%} else {%>
                   <div class="carousel-item active">
-                      <img class="d-block w-100" src="https://dorothy-mirim.herokuapp.com/assets/img_1.png" alt="첫번째 슬라이드">
+                      <img class="d-block w-100" src="/assets/img_1.png" alt="첫번째 슬라이드">
                   </div>
               <%}%>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <img src="https://dorothy-mirim.herokuapp.com/assets/left.png" class="leftbtn">
+                <img src="/assets/left.png" class="leftbtn">
                 <span class="sr-only">이전</span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <img src="https://dorothy-mirim.herokuapp.com/assets/right.png" class="rightbtn">
+                <img src="/assets/right.png" class="rightbtn">
                 <span class="sr-only">다음</span>
             </a>
             <div class="carousel-caption">
