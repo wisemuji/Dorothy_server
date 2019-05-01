@@ -141,11 +141,25 @@
         let pwregx = /^[\w~@\#$%<>^&*\()\-=+_\']/; //영문, 숫자, 특수기호(~!@#$%^&*()_+-=)
         let phoneregx = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
 
+        function email_send() {
+            $.post("mailAuth", {email:id.val()}, function(res, status){
+                if(res){
+                    alert("이메일 전송에 성공하였습니다.");
+                    $('.code-error').text("발송된 인증코드를 입력해주세요.");
+                    $('.code-error').removeClass('green');
+                } else {
+                    alert("이메일 전송에 실패하였습니다.");
+                }
+            });
+        };
+
         function email_check() {
             $.post("mailAuthCheck", {email:id.val(), email_token:code.val()}, function(res, status){
                 if(res){
                     codeFlag = true;
                     alert("이메일이 성공적으로 인증되었습니다.");
+                    $('.code-error').text("이메일이 성공적으로 인증되었습니다.");
+                    $('.code-error').addClass('green');
                     code.prop('disabled', true);
                     echeck.hide();
                 } else {
