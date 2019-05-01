@@ -84,13 +84,13 @@
                     <div class="join-phone">
                         <label for="phone">휴대폰</label>
                         <input type="text" id="phone" class="phone" name="phone" maxlength="11" placeholder="숫자만 입력해주세요" required>
-                        <input type="button" class="check" value="인증하기" onclick="phone_check()">
+                        <input type="button" class="check" value="인증하기">
                         <div class="phone-error"></div>
                     </div>
                     <div class="join-code">
                         <label for="pcode">휴대폰 인증</label>
                         <input type="text" class="pcode" id="pcode" required>
-                        <input type="button" class="check" value="인증완료">
+                        <input type="button" class="check" value="인증완료" onclick="phone_check()">
                         <div class="pcode-error"></div>
                     </div>
                     <div class="join-pw">
@@ -148,6 +148,19 @@
                     codeFlag = true;
                     alert(data);
                     $('.code').prop('disabled', true);
+                }
+            });
+        };
+
+        function phone_check() {
+            $.post("phoneAuthCheck", {phone:phone.val(), phone_token:pcode.val()}, function(data, status){
+                if(status == "nocontent"){
+                    pcodeFlag = false;
+                    alert("인증에 실패하였습니다.");
+                } else {
+                    pcodeFlag = true;
+                    alert(data);
+                    $('.pcode').prop('disabled', true);
                 }
             });
         };
