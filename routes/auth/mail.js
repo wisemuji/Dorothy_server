@@ -70,9 +70,9 @@ module.exports = (app, Confirm)=>{
                 res.send(err);
             } else {
                 if( data == null){
-                    res.status(400).send("not found");
+                    res.status(204).send("인증에 실패하였습니다.");
                 }
-                else res.status(200).send("success!");
+                else res.status(200).send("성공적으로 인증되었습니다.");
             }
         }); 
     })

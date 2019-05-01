@@ -15,7 +15,7 @@
     <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
 
-    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
+    <base href="http://localhost:5000" target="_self">
 </head>
 <body id="page-top">
     <div class="header">
@@ -61,17 +61,17 @@
             <hr width="70px">
             <div class="form-title">회원가입</div>
             <div class="app-form">
-                <form action="" method="" id="joinForm">
+                <form action="signup" method="POST" id="joinForm">
                     <div class="join-id">
                         <label for="id">이메일</label>
-                        <input type="text" class="id" name="id" placeholder="학교 이메일로만 가입 가능합니다" required>
+                        <input type="text" class="id" name="email" placeholder="학교 이메일로만 가입 가능합니다" required>
                         <input type="button" class="check" value="인증하기">
                         <div class="id-error"></div>
                     </div>
                     <div class="join-code">
                         <label for="code">이메일 인증</label>
                         <input type="text" class="code" name="code" required>
-                        <input type="button" class="check" value="인증완료">
+                        <input type="button" class="check" value="인증완료" onclick="email_check()">
                         <div class="code-error"></div>
                     </div>
                     <!-- <div class="join-phone">
@@ -83,24 +83,24 @@
                     </div> -->
                     <div class="join-phone">
                         <label for="phone">휴대폰</label>
-                        <input type="text" id="phone" class="phone" maxlength="11" placeholder="숫자만 입력해주세요" required>
-                        <input type="button" class="check" value="인증하기">
+                        <input type="text" id="phone" class="phone" name="phone" maxlength="11" placeholder="숫자만 입력해주세요" required>
+                        <input type="button" class="check" value="인증하기" onclick="phone_check()">
                         <div class="phone-error"></div>
                     </div>
                     <div class="join-code">
                         <label for="pcode">휴대폰 인증</label>
-                        <input type="text" class="pcode" name="pcode" required>
+                        <input type="text" class="pcode" id="pcode" required>
                         <input type="button" class="check" value="인증완료">
                         <div class="pcode-error"></div>
                     </div>
                     <div class="join-pw">
                         <label for="pw">비밀번호</label>
-                        <input type="password" class="pw" name="pw" required>
+                        <input type="password" class="pw" name="passwd" required>
                         <div class="pw-error"></div>
                     </div>
                     <div class="join-pwch">
                         <label for="pwch">비밀번호 확인</label>
-                        <input type="password" class="pwch" name="pwch" required>
+                        <input type="password" class="pwch" id="pwch" required>
                         <div class="pwch-error"></div>
                     </div>
                     <div class="btns">
@@ -119,22 +119,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $(function(){
-            var id = $('.id');
-            var idFlag = false;
-            var pw = $('.pw');
-            var pwFlag = false;
-            var pwch = $('.pwch');
-            var pwchFlag = false;
-            var phone = $('.phone');
-            var phoneFlag = false;
+        var id = $('.id');
+        var idFlag = false;
+        var pw = $('.pw');
+        var pwFlag = false;
+        var pwch = $('.pwch');
+        var pwchFlag = false;
+        var code = $('.code');
+        var codeFlag = false;
+        var pcode = $('.pcode');
+        var pcodeFlag = false;
+        var phone = $('.phone');
+        var phoneFlag = false;
 
-            let eng = /[a-zA-Z]/;
-            let num = /[0-9]/;
-            let sc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
-            let idregx = /^[a-z0-9]+@(e-mirim\.hs\.kr)$/; // 영문, 숫자
-            let pwregx = /^[\w~@\#$%<>^&*\()\-=+_\']/; //영문, 숫자, 특수기호(~!@#$%^&*()_+-=)
-            let phoneregx = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+        let eng = /[a-zA-Z]/;
+        let num = /[0-9]/;
+        let sc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+        let idregx = /^[a-z0-9]+@(e-mirim\.hs\.kr)$/; // 영문, 숫자
+        let pwregx = /^[\w~@\#$%<>^&*\()\-=+_\']/; //영문, 숫자, 특수기호(~!@#$%^&*()_+-=)
+        let phoneregx = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+
+        function email_check() {
+            $.post("mailAuthCheck", {email:id.val(), email_token:code.val()}, function(data, status){
+                if(status == "nocontent"){
+                    codeFlag = false;
+                    alert("인증에 실패하였습니다.");
+                } else {
+                    codeFlag = true;
+                    alert(data);
+                    $('.code').prop('disabled', true);
+                }
+            });
+        };
+        
+        $(function(){
 
             id.blur(function(){
                 if(idregx.test(id.val())) { // true
@@ -191,13 +209,14 @@
             });
 
             $('.form-submit').click(function() { 
-                if(idFlag == false || pwFlag == false || pwchFlag == false || phoneFlag == false) {
+                if(idFlag == false || pwFlag == false || pwchFlag == false || phoneFlag == false || pcodeFlag == false || codeFlag == false ) {
                     $('.submit-error').text("양식을 한 번 더 확인해주세요");
                 }
                 else { // 모든 조건 충족 시
                     $('#joinForm').submit(); 
                 }
             });
+
         });
     </script>       
 </body>
