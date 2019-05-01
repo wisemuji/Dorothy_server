@@ -143,12 +143,24 @@
 
         function email_send() {
             $.post("mailAuth", {email:id.val()}, function(res, status){
-                if(res){
+                if(res && idregx.test(id.val())){
                     alert("이메일 전송에 성공하였습니다.");
                     $('.code-error').text("발송된 인증코드를 입력해주세요.");
                     $('.code-error').removeClass('green');
                 } else {
                     alert("이메일 전송에 실패하였습니다.");
+                }
+            });
+        };
+
+        function phone_send() {
+            $.post("phoneAuth", {phone:phone.val()}, function(res, status){
+                if(res && phoneregx.test(phone.val())){
+                    alert("메시지 전송에 성공하였습니다.");
+                    $('.pcode-error').text("발송된 인증번호를 입력해주세요.");
+                    $('.pcode-error').removeClass('green');
+                } else {
+                    alert("메시지 전송에 실패하였습니다.");
                 }
             });
         };
@@ -172,12 +184,14 @@
         function phone_check() {
             $.post("phoneAuthCheck", {phone:phone.val(), phone_token:pcode.val()}, function(res, status){
                 if(res){
-                    codeFlag = true;
+                    pcodeFlag = true;
                     alert("휴대폰이 성공적으로 인증되었습니다.");
+                    $('.pcode-error').text("휴대폰이 성공적으로 인증되었습니다.");
+                    $('.pcode-error').addClass('green');
                     pcode.prop('disabled', true);
                     pcheck.hide();
                 } else {
-                    codeFlag = false;
+                    pcodeFlag = false;
                     alert("휴대폰 인증에 실패하였습니다.");
                 }
             });
