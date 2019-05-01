@@ -145,6 +145,7 @@
                     codeFlag = true;
                     alert("이메일이 성공적으로 인증되었습니다.");
                     $('.code').prop('disabled', true);
+                    this.prop('disabled', true);
                 } else {
                     codeFlag = false;
                     alert("이메일 인증에 실패하였습니다.");
