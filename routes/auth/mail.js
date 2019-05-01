@@ -47,7 +47,8 @@ module.exports = (app, Confirm)=>{
     })
     
     .post("/mailAuthCheck", async (req,res) => {
-        await Confirm.findOne({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
+        //인증번호 확인하면 삭제
+        await Confirm.findOneAndRemove({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
             if (err){            
                 res.send(err);
             } else {
