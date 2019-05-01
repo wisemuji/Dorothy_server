@@ -46,24 +46,6 @@ module.exports = (app, Confirm)=>{
         });
     })
     
-    // client side coding
-    // const button = document.getElementById('myButton');
-    // button.addEventListener('click', function(e) {
-    //   console.log('button was clicked');
-
-    //   fetch('/clicked', {method: 'POST'})
-    //     .then(function(response) {
-    //       if(response.ok) {
-    //         console.log('Click was recorded');
-    //         return;
-    //       }
-    //       throw new Error('Request failed.');
-    //     })
-    //     .catch(function(error) {
-    //       console.log(error);
-    //     });
-    // });
-    
     .post("/mailAuthCheck", async (req,res) => {
         await Confirm.findOne({email:req.body.email, email_token: req.body.email_token}, (err, data)=>{
             if (err){            

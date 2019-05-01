@@ -65,7 +65,7 @@
                     <div class="join-id">
                         <label for="id">이메일</label>
                         <input type="text" class="id" name="email" placeholder="학교 이메일로만 가입 가능합니다" required>
-                        <input type="button" class="check" value="인증하기">
+                        <input type="button" class="check" value="인증하기" onclick="email_send()">
                         <div class="id-error"></div>
                     </div>
                     <div class="join-code">
@@ -84,7 +84,7 @@
                     <div class="join-phone">
                         <label for="phone">휴대폰</label>
                         <input type="text" id="phone" class="phone" name="phone" maxlength="11" placeholder="숫자만 입력해주세요" required>
-                        <input type="button" class="check" value="인증하기">
+                        <input type="button" class="check" value="인증하기" onclick="phone_send()">
                         <div class="phone-error"></div>
                     </div>
                     <div class="join-code">
@@ -140,27 +140,27 @@
         let phoneregx = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
 
         function email_check() {
-            $.post("mailAuthCheck", {email:id.val(), email_token:code.val()}, function(data, status){
-                if(status == "nocontent"){
-                    codeFlag = false;
-                    alert("인증에 실패하였습니다.");
-                } else {
+            $.post("mailAuthCheck", {email:id.val(), email_token:code.val()}, function(res, status){
+                if(res){
                     codeFlag = true;
-                    alert(data);
+                    alert("이메일이 성공적으로 인증되었습니다.");
                     $('.code').prop('disabled', true);
+                } else {
+                    codeFlag = false;
+                    alert("이메일 인증에 실패하였습니다.");
                 }
             });
         };
 
         function phone_check() {
-            $.post("phoneAuthCheck", {phone:phone.val(), phone_token:pcode.val()}, function(data, status){
-                if(status == "nocontent"){
-                    pcodeFlag = false;
-                    alert("인증에 실패하였습니다.");
-                } else {
-                    pcodeFlag = true;
-                    alert(data);
+            $.post("phoneAuthCheck", {phone:phone.val(), phone_token:pcode.val()}, function(res, status){
+                if(res){
+                    codeFlag = true;
+                    alert("휴대폰이 성공적으로 인증되었습니다.");
                     $('.pcode').prop('disabled', true);
+                } else {
+                    codeFlag = false;
+                    alert("휴대폰 인증에 실패하였습니다.");
                 }
             });
         };
