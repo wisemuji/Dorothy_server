@@ -65,6 +65,7 @@
             <div class="search-box">
               <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
               <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="/assets/search_icon.png"></button>
+              <button class="search-btn" type="button" onclick="" id="notification-btn">합격 알림 보내기</button>
             </div>
 
             <div class="clubs"> 
@@ -73,6 +74,7 @@
                 <%var i = 0;%>
                 <%item.appliers.forEach(function(element){%>
                     <div class="club-col">
+                        <input type="checkbox" class="check">
                         <div class="appli-title">
                             <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
                             <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>

@@ -47,7 +47,7 @@ hr {
     height: auto;
     font-size: 23px;
     margin-top: 37px;
-    margin-left: 44px;
+    margin-left: 20px;
     font-weight: 800;
 }
 
@@ -181,11 +181,17 @@ button:focus {
     float: right;
     text-align: right;
     font-weight: 800;
-    display: none;
+    visibility: hidden;
 }
 
 .club-col:hover .appli-close {
-    display: block;
+    visibility: visible;
+}
+
+input.check{
+    width: 70px;
+    margin-left: 40px;
+    margin-top: 24px;
 }
 
 @media all and (max-width: 1645px) and (min-width: 1241px) {
