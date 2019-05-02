@@ -83,7 +83,7 @@
     height: 64px;
     border: none;
     border-radius: 10px;
-    background-color: #000000;
+    background-color: #424242;
     color: #fff;
     font-size: 20px;
     font-weight: 800;
@@ -92,4 +92,32 @@
     -webkit-appearance: none;
     padding: 0;
     margin-left: 99px;
+}
+
+@media all and (max-width: 770px) {
+    .login {
+        width: 85% !important;
+        height: auto !important;
+    }
+    .login-form {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .login-id, .login-pw {
+        text-align: center;
+    }
+    .login-id label, .login-pw label {
+        margin: 0 !important;
+        width: 20% !important;
+        margin-bottom: 10px !important;
+    }
+    .login-id input, .login-pw input {
+        margin: 0 !important;
+        width: 60% !important;
+    }
+    .login-btn {
+        margin: 0 auto !important;
+        width: 70% !important;
+        margin-top: 60px !important;
+    }
 }

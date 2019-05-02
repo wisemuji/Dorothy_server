@@ -15,6 +15,7 @@ var ClubSchema = mongoose.Schema({
   interview_date: {type: Date}, //면접 날짜
   token : {type : String}, //club token
   appliers : [{
+    email: {type : String}, //이메일
     id: {type : Number}, //학번
     name: {type : String}, //이름
     pr: {type : String}, //자기소개

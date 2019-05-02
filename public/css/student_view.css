@@ -2,7 +2,6 @@
     max-height: 1010px;
     overflow: hidden;
     width: 100%;
-    height: 1010px;
     position: relative;
     align-items: center;
 }
@@ -18,7 +17,7 @@
 .carousel-caption {
     position: absolute;
     right: 15%;
-    top: 288px;
+    top: 10%;
     left: 15%;
     z-index: 10;
     padding-top: 20px;
@@ -56,7 +55,7 @@
     height: 64px;
     border: none;
     border-radius: 10px;
-    background-color: #000000;
+    background-color: #424242;
     color: #fff;
     font-size: 20px;
     font-weight: 800;
@@ -66,7 +65,50 @@
     padding: 0;
     margin: 172px 0px 113px 0px;
 }
+
 #carouselExampleIndicators {
     z-index: 5;
     position: relative;
+}
+
+@media all and (max-width: 770px) {
+    .view-img {
+        margin-top: 70px !important;
+        margin-bottom: 30px !important;
+    }
+    hr {
+        margin: 0 auto !important;
+    }
+    .content {
+        display: block;
+        text-align: center;
+        margin-top: 0px !important;
+        margin-bottom: 78px !important;
+    }
+    .contents {
+        width: 90%;
+        height: auto;
+        margin: 0 auto!important;
+        font-size: 18px !important;
+    }
+    .content label {
+        margin-bottom: 48px;
+        font-size: 23px !important;
+    }
+    .join-btn {
+        width: 80%;
+        margin-top: 0 !important;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .carousel-caption {
+        font-size: 40px !important;
+    }
+    .contents {
+        font-size: 15px !important;
+    }
+    .content label {
+        font-size: 20px !important;
+    }
 }

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Dorothy</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/join.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+
+    <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
+
+    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
+</head>
+<body id="page-top">
+    <div class="header">
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="/assets/Dorothy_logo.png"></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.ejs#introduction">동아리 소개</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.ejs#calendar">캘린더</a>
+                        </li>
+                        <%if(!id){%>
+                          <li class="nav-item">
+                              <a class="nav-link js-scroll-trigger" href="/login">로그인</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link js-scroll-trigger" href="/join">회원가입</a>
+                          </li>
+                        <% } else { %>
+                          <li class="nav-item">
+                              <a class="nav-link js-scroll-trigger" href="/leader_view">동아리 관리</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link js-scroll-trigger" href="/logout">로그아웃</a>
+                          </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="form-img"><div class="join-name">환영해요 미림인</div></div>
+    <div class="container" style="max-width: 100%; padding: 0;">
+        <div class="join-form">
+            <hr width="70px">
+            <div class="form-title">회원가입</div>
+            <div class="app-form">
+                <form action="signup" method="POST" id="joinForm">
+                    <div class="join-id">
+                        <label for="id">이메일</label>
+                        <input type="text" class="id" name="email" placeholder="학교 이메일로만 가입 가능합니다" required>
+                        <input type="button" class="check" value="인증하기" onclick="email_send()">
+                        <div class="id-error"></div>
+                    </div>
+                    <div class="join-code">
+                        <label for="code">이메일 인증</label>
+                        <input type="text" class="code" name="code" required>
+                        <input type="button" id="echeck" class="check" value="인증완료" onclick="email_check()">
+                        <div class="code-error"></div>
+                    </div>
+                    <!-- <div class="join-phone">
+                        <label for="phone">휴대폰</label>
+                        <input type="text" id="phone1"> - 
+                        <input type="text" id="phone2" maxlength="4"> - 
+                        <input type="text" id="phone3" maxlength="4">
+                        <input type="button" value="인증하기">
+                    </div> -->
+                    <div class="join-phone">
+                        <label for="phone">휴대폰</label>
+                        <input type="text" id="phone" class="phone" name="phone" maxlength="11" placeholder="숫자만 입력해주세요" required>
+                        <input type="button" class="check" value="인증하기" onclick="phone_send()">
+                        <div class="phone-error"></div>
+                    </div>
+                    <div class="join-code">
+                        <label for="pcode">휴대폰 인증</label>
+                        <input type="text" class="pcode" id="pcode" required>
+                        <input type="button" id="pcheck" class="check" value="인증완료" onclick="phone_check()">
+                        <div class="pcode-error"></div>
+                    </div>
+                    <div class="join-pw">
+                        <label for="pw">비밀번호</label>
+                        <input type="password" class="pw" name="passwd" required>
+                        <div class="pw-error"></div>
+                    </div>
+                    <div class="join-pwch">
+                        <label for="pwch">비밀번호 확인</label>
+                        <input type="password" class="pwch" id="pwch" required>
+                        <div class="pwch-error"></div>
+                    </div>
+                    <div class="btns">
+                        <div class="submit-error"></div>  
+                        <input type="reset" value="취소"class="form-cansle">
+                        <input type="button" value="제출"class="form-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/grayscale.min.js"></script>
+    <script src="/js/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var id = $('.id');
+        var idFlag = false;
+        var pw = $('.pw');
+        var pwFlag = false;
+        var pwch = $('.pwch');
+        var pwchFlag = false;
+        var code = $('.code');
+        var codeFlag = false;
+        var pcode = $('.pcode');
+        var pcodeFlag = false;
+        var phone = $('.phone');
+        var phoneFlag = false;
+        var echeck = $('#echeck');
+        var pcheck = $('#pcheck');
+
+        let eng = /[a-zA-Z]/;
+        let num = /[0-9]/;
+        let sc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+        let idregx = /^[a-z0-9]+@(e-mirim\.hs\.kr)$/; // 영문, 숫자
+        let pwregx = /^[\w~@\#$%<>^&*\()\-=+_\']/; //영문, 숫자, 특수기호(~!@#$%^&*()_+-=)
+        let phoneregx = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+
+        function email_send() {
+            $.post("mailAuth", {email:id.val()}, function(res, status){
+                if(res && idregx.test(id.val())){
+                    alert("이메일 전송에 성공하였습니다.");
+                    $('.code-error').text("발송된 인증코드를 입력해주세요.");
+                    $('.code-error').removeClass('green');
+                } else {
+                    alert("이메일 전송에 실패하였습니다.");
+                }
+            });
+        };
+
+        function phone_send() {
+            $.post("phoneAuth", {phone:phone.val()}, function(res, status){
+                if(res && phoneregx.test(phone.val())){
+                    alert("메시지 전송에 성공하였습니다.");
+                    $('.pcode-error').text("발송된 인증번호를 입력해주세요.");
+                    $('.pcode-error').removeClass('green');
+                } else {
+                    alert("메시지 전송에 실패하였습니다.");
+                }
+            });
+        };
+
+        function email_check() {
+            $.post("mailAuthCheck", {email:id.val(), email_token:code.val()}, function(res, status){
+                if(res){
+                    codeFlag = true;
+                    alert("이메일이 성공적으로 인증되었습니다.");
+                    $('.code-error').text("이메일이 성공적으로 인증되었습니다.");
+                    $('.code-error').addClass('green');
+                    code.prop('disabled', true);
+                    echeck.hide();
+                } else {
+                    codeFlag = false;
+                    alert("이메일 인증에 실패하였습니다.");
+                }
+            });
+        };
+
+        function phone_check() {
+            $.post("phoneAuthCheck", {phone:phone.val(), phone_token:pcode.val()}, function(res, status){
+                if(res){
+                    pcodeFlag = true;
+                    alert("휴대폰이 성공적으로 인증되었습니다.");
+                    $('.pcode-error').text("휴대폰이 성공적으로 인증되었습니다.");
+                    $('.pcode-error').addClass('green');
+                    pcode.prop('disabled', true);
+                    pcheck.hide();
+                } else {
+                    pcodeFlag = false;
+                    alert("휴대폰 인증에 실패하였습니다.");
+                }
+            });
+        };
+        
+        $(function(){
+
+            id.blur(function(){
+                if(idregx.test(id.val())) { // true
+                    idFlag = true;
+                    $('.id-error').text("올바른 형식의 아이디입니다! :)");
+                    $('.id-error').addClass('green');
+                } else {
+                    idFlag = false;
+                    $('.id-error').text("학교 이메일로만 가입 가능합니다!");
+                    $('.id-error').removeClass('green');
+                }
+            });
+
+            pw.blur(function() {
+                if(pwregx.test(pw.val())) { // true
+                    if(!eng.test(pw.val()) || !num.test(pw.val()) || !sc.test(pw.val())) { // 영문, 숫자, 특수기호 중 하나라도 포함 X
+                        pwFlag = false;
+                        $('.pw-error').text("영문, 숫자, 특수기호로 구성해주세요");
+                        $('.pw-error').removeClass('green');
+                        return;
+                    }
+                    pwFlag = true;
+                    $('.pw-error').text("올바른 형식의 비밀번호입니다! :)");
+                    $('.pw-error').addClass('green');
+                } else {
+                    pwFlag = false;
+                    $('.pw-error').text("영문, 숫자, 특수기호로 구성해주세요");
+                    $('.pw-error').removeClass('green');
+                }
+            });
+
+            pwch.blur(function() {
+                if(pwch.val() == pw.val() && pwch.val() != "") { // true
+                    pwchFlag = true;
+                    $('.pwch-error').text("상위 비밀번호와 일치합니다 :)");
+                    $('.pwch-error').addClass('green');
+                } else {
+                    pwchFlag = false;
+                    $('.pwch-error').text("상위 비밀번호와 일치하지 않습니다!");
+                    $('.pwch-error').removeClass('green');
+                }
+            });
+
+            phone.blur(function() {
+                if(phoneregx.test(phone.val())) { // true
+                    phoneFlag = true;
+                    $('.phone-error').text("올바른 휴대 전화 번호입니다 :)");
+                    $('.phone-error').addClass('green');
+                } else {
+                    phoneFlag = false;
+                    $('.phone-error').text("-을 제외한 숫자만 입력해주세요!");
+                    $('.phone-error').removeClass('green');
+                }
+            });
+
+            $('.form-submit').click(function() { 
+                if(idFlag == false || pwFlag == false || pwchFlag == false || phoneFlag == false || pcodeFlag == false || codeFlag == false ) {
+                    $('.submit-error').text("양식을 한 번 더 확인해주세요");
+                }
+                else { // 모든 조건 충족 시
+                    $('#joinForm').submit(); 
+                }
+            });
+
+        });
+    </script>       
+</body>
+</html>

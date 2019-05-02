@@ -1,26 +1,30 @@
 #mainNav {
     background-color: white;
 }
- hr {
+
+hr {
     border: 0;
     height: 5px;
     background: black;
     padding: 0px;
     margin-top: 208px;
 }
- .sec-name {
+
+.sec-name {
     font-size: 46px;
     height: 46px;
     margin-top: 25px;
     margin-bottom: 18px;
     font-weight: 800;
 }
- .sec-explain {
+
+.sec-explain {
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 87px;
 }
- .club-col {
+
+.club-col {
     width: 381px;
     height: 468px;
     border-radius: 20px;
@@ -30,13 +34,15 @@
     text-align: left;
     background-color: #fff;
 }
- .club-img {
+
+.club-img {
     border-radius: 50%;
     width: 280px;
     height: 280px;
     margin: 48px 39px 40px 40px;
 }
- .appli-name{
+
+.appli-name{
     width: 100%;
     height: auto;
     font-size: 23px;
@@ -44,12 +50,14 @@
     margin-left: 44px;
     font-weight: 800;
 }
- .page {
+
+.page {
     margin-top: 70px;
     display: inline-block;
     font-size: 20px;
 }
- .page li {
+
+.page li {
     text-indent: 0;
     margin: 0 2px;
     width: 30px;
@@ -63,32 +71,41 @@
     margin: 0px 10px 0px 10px;
     background-color: #dedede;
 }
- .page-right, .page-left {
+
+.page-right, .page-left {
     margin: 0px 31px;
 }
- #calendar {
+
+#calendar {
     margin-bottom: 216px;
 }
- .fc-scroller {
+
+.fc-scroller {
     height: 605px;
 }
- .fc-widget-header {
+
+.fc-widget-header {
     font-size: 18px;
 }
- .fc-day-header {
+
+.fc-day-header {
     padding: 16px 0px;
 }
- .fc-sun {
+
+.fc-sun {
     color: #ff4141;
     border-right: none;
 }
- .fc-sat {
+
+.fc-sat {
     color: #414eff;
 }
- .search-box {
+
+.search-box {
     margin-bottom: 107px;
     margin-top: 94px;
 }
+
 input {
     width: 380px;
     height: 56px;
@@ -101,9 +118,8 @@ input {
     padding: 10px 20px;
     font-size: 18px;
 }
- button {
-    width: 56px;
-    height: 56px;
+
+button {
     background-color:white;
     border: none;
     color: white;
@@ -116,13 +132,21 @@ input {
     margin-left: 10px;
     outline: none;
 }
- button:hover {
+
+.search-btn {
+    width: 56px;
+    height: 56px;
+}
+
+button:hover {
     background-color:rgba(0, 0, 0, 0.13);
 }
- button:focus {
+
+button:focus {
     outline: none;
 }
- .appli-pr, .appli-reason, .appli-close {
+
+.appli-pr, .appli-reason, .appli-close {
     width: 287px;
     height: 143px;
     margin-top: 28px;
@@ -132,20 +156,25 @@ input {
     font-size: 18px;
     line-height: 1.78;
 }
+
 .appli-pr, .appli-reason {
-    overflow-x:hidden;
+    overflow-x:hidden; 
     overflow-y:auto;
 }
- ::-webkit-scrollbar {
-    display: none;
+
+::-webkit-scrollbar { 
+    display: none; 
 }
- .appli-reason {
+
+.appli-reason {
     margin-top: 39px;
 }
- .appli-title {
+
+.appli-title {
     display: flex;
 }
- .appli-close {
+
+.appli-close {
     width: 100%;
     height: auto;
     margin: 37px 45px 0px 0px;
@@ -154,6 +183,22 @@ input {
     font-weight: 800;
     display: none;
 }
- .club-col:hover .appli-close {
+
+.club-col:hover .appli-close {
     display: block;
+}
+
+@media all and (max-width: 1645px) and (min-width: 1241px) {
+    .club-col {
+        width: 35%;
+    }
+    .appli-pr, .appli-reason {
+        width: 80% !important; 
+    }
+}
+
+@media all and (max-width: 550px) {
+    input {
+        width: 70%;
+    }
 }

@@ -3,25 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorothy</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-    <link rel="stylesheet" type="text/css" href="https://dorothy-mirim.herokuapp.com/css/fullcalendar.min.css">
-    <link rel="stylesheet" href="https://dorothy-mirim.herokuapp.com/css/styles.css" />
-    <link rel="stylesheet" href="https://dorothy-mirim.herokuapp.com/css/apply_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/apply_view.css" />
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="https://dorothy-mirim.herokuapp.com/js/fullcalendar.min.js"></script>
-    <link rel="icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
-    <link rel="shortcut icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
+    <script src="/js/fullcalendar.min.js"></script>
+    <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
+
+    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
 </head>
 <body id="page-top">
     <div class="header">
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/"><img src="https://dorothy-mirim.herokuapp.com/assets/Dorothy_logo.png"></a>
+        <div class="container" style="padding-bottom: 50px;">
+            <a class="navbar-brand js-scroll-trigger" href="/"><img src="/assets/Dorothy_logo.png"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -29,27 +32,31 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/index.ejs#introduction">동아리 소개</a>
+                        <a class="nav-link js-scroll-trigger" href="/index.ejs#introduction">동아리 소개</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/index.ejs#calendar">캘린더</a>
+                        <a class="nav-link js-scroll-trigger" href="/index.ejs#calendar">캘린더</a>
                     </li>
                     <%if(!id){%>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/login">로그인</a>
+                          <a class="nav-link js-scroll-trigger" href="/login">로그인</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="/join">회원가입</a>
                       </li>
                     <% } else { %>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/leader_view">동아리 관리</a>
+                          <a class="nav-link js-scroll-trigger" href="/leader_view">동아리 관리</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link js-scroll-trigger" href="https://dorothy-mirim.herokuapp.com/logout">로그아웃</a>
+                          <a class="nav-link js-scroll-trigger" href="/logout">로그아웃</a>
                       </li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </nav>
+  </div>
      <!-- introduction section -->
     <section id="introduction" class="about-section text-center">
         <div class="container" style="padding-top: 71px; max-width: 100%;">
@@ -57,32 +64,40 @@
             <div class="sec-name"><%=item.name%></div>
             <div class="search-box">
               <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
-              <button type="button" onclick="changeFocus(); " id="search-btn"><img src="https://dorothy-mirim.herokuapp.com/assets/search_icon.png"></button>
+              <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="/assets/search_icon.png"></button>
             </div>
 
+            <div class="clubs"> 
+              <div class="club-row">
               <%if(item.appliers.length>0){%>
                 <%var i = 0;%>
                 <%item.appliers.forEach(function(element){%>
-                  <div class="club-col">
-                      <div class="appli-title">
-                          <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
-                          <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
-                      </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
-                      <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
-                      <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+                    <div class="club-col">
+                        <div class="appli-title">
+                            <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
+                            <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
+                        </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
+                        <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
+                        <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+                    </div>
+                  <%if(i%3==0&&i!=0){%>
                   </div>
+                  <div class="club-row">
+                  <%}%>
                   <%i++;%>
                 <%})%>
+              </div>
                 <%} else {%>
                 <tr>
                     <td colspan="5">아직 신청자가 없습니다.</td>
                 </tr>
               <%}%>
+              </div>
             </div>
         </div>
     </section>
-     <script src="https://dorothy-mirim.herokuapp.com/js/grayscale.min.js"></script>
-    <script src="https://dorothy-mirim.herokuapp.com/js/jquery.easing.js"></script>
+     <script src="/js/grayscale.min.js"></script>
+    <script src="/js/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <br><br><br>
     <script type="text/javascript">

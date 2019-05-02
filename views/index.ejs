@@ -3,25 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dorothy</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-    <link rel="stylesheet" type="text/css" href="https://dorothy-mirim.herokuapp.com/css/fullcalendar.min.css">
-    <link rel="stylesheet" href="https://dorothy-mirim.herokuapp.com/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/slick/slick.css" />
+    <link rel="stylesheet" href="/slick/slick-theme.css" />
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="https://dorothy-mirim.herokuapp.com/js/fullcalendar.min.js"></script>
-    <link rel="icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
-    <link rel="shortcut icon" href="https://dorothy-mirim.herokuapp.com/assets/favicon_32.png" type="image/x-icon">
+    <script src="/js/fullcalendar.min.js"></script>
+    <script src="/slick/slick.min.js"></script>
+    <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
+
+    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
 </head>
 <body id="page-top">
     <div class="header">
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="https://dorothy-mirim.herokuapp.com/assets/Dorothy_logo.png"></a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/assets/Dorothy_logo.png"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -37,6 +43,9 @@
                     <%if(!id){%>
                       <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="login">로그인</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="join">회원가입</a>
                       </li>
                     <% } else { %>
                       <%if(id == 'root'){%>
@@ -56,6 +65,7 @@
             </div>
         </div>
     </nav>
+</div>
 
     <!-- Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -66,21 +76,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="https://dorothy-mirim.herokuapp.com/assets/img_1.png" alt="첫번째 슬라이드">
+                <img class="d-block w-100" src="/assets/img_1.png" alt="첫번째 슬라이드">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://dorothy-mirim.herokuapp.com/assets/img_2.png" alt="두번째 슬라이드">
+                <img class="d-block w-100" src="/assets/img_2.png" alt="두번째 슬라이드">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://dorothy-mirim.herokuapp.com/assets/img_3.png" alt="세번째 슬라이드">
+                <img class="d-block w-100" src="/assets/img_3.png" alt="세번째 슬라이드">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <img src="https://dorothy-mirim.herokuapp.com/assets/left.png" class="leftbtn">
+            <img src="/assets/left.png" class="leftbtn">
             <span class="sr-only">이전</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <img src="https://dorothy-mirim.herokuapp.com/assets/right.png" class="rightbtn">
+            <img src="/assets/right.png" class="rightbtn">
             <span class="sr-only">다음</span>
         </a>
     </div>
@@ -91,7 +101,7 @@
             <hr width="70px">
             <div class="sec-name">동아리 소개</div>
             <div class="sec-explain">관심있는 동아리를 마음껏 구경해보세요!</div>
-            <div class="club-row">
+            <div class="center">
 
             <%if(contents.length>0){%>
               <%var i = 0;%>
@@ -102,7 +112,7 @@
                     <%if(typeof item.images[0] != 'undefined'){%>
                       <img class="club-img" src='<%=item.images[0].url%>'>
                     <%} else {%>
-                      <img class="club-img" src='https://dorothy-mirim.herokuapp.com/assets/img_1.png'>
+                      <img class="club-img" src='/assets/img_1.png'>
                     <%}%>
                       <div class="club-name"><%=item.name%></div>
                   </div>
@@ -123,7 +133,7 @@
                 <div class="sec-name">캘린더</div>
                 <div class="sec-explain">신청마감일과 면접날짜를 놓치지 마세요!</div>
 
-                <center><div id='calendar' style="width: 1026px;"></div></center>
+                <center><div id="calendar"></div></center>
             </div>
         </section>
 
@@ -151,11 +161,39 @@
                       <%})%>
                     <%}%>
                 ]
-            })
+            });
+            // 동아리 목록 slider임
+            $('.center').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                // dots: true,
+                infinite: true,
+                prevArrow:"<img class='a-left control-c prev slick-prev' src='/assets/left_click.png'>",
+                nextArrow:"<img class='a-right control-c next slick-next' src='/assets/right.png'>",
+                variableWidth: true,
+                responsive: [{
+                    breakpoint: 770,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 1
+                    }
+                }]
+            });
         });
     </script>
-    <script src="https://dorothy-mirim.herokuapp.com/js/grayscale.min.js"></script>
-    <script src="https://dorothy-mirim.herokuapp.com/js/jquery.easing.js"></script>
+    <script src="/js/grayscale.min.js"></script>
+    <script src="/js/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 </body>
 </html>

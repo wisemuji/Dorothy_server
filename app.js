@@ -32,7 +32,9 @@ app.set('view engine', 'ejs');
 //module setting
 var Users = require("./mongo/usersSchema");
 var Clubs = require("./mongo/clubsSchema");
-// const db = require("./mongo");
+var Appliers = require("./mongo/appliersSchema");
+var Confirm = require("./mongo/confirmSchema");
+const db = require("./mongo");
 
 //서버 실행
 const PORT = process.env.PORT || 5000;
@@ -40,7 +42,9 @@ app.listen(PORT, function(){
   console.log('server running');
 });
 
-require('./routes/auth/auth')(app, Users, rndstring);
+require('./routes/auth/auth')(app, Users, Appliers, rndstring);
+require('./routes/auth/mail')(app, Confirm);
+require('./routes/auth/phone')(app, Confirm);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
 require('./routes/apply/apply')(app, Clubs, rndstring);
