@@ -194,6 +194,18 @@ input.check{
     margin-top: 24px;
 }
 
+input[type="button"]{
+    width: 148px;
+    border: none;
+    border-radius: 10px;
+    background-color: #424242;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 17px;
+    outline: none;
+}
+
 @media all and (max-width: 1645px) and (min-width: 1241px) {
     .club-col {
         width: 35%;
