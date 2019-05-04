@@ -16,6 +16,7 @@ var ClubSchema = mongoose.Schema({
   token : {type : String}, //club token
   appliers : [{
     email: {type : String}, //이메일
+    phone: {type : String}, //핸폰번호
     id: {type : Number}, //학번
     name: {type : String}, //이름
     pr: {type : String}, //자기소개
