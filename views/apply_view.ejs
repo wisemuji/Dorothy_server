@@ -66,9 +66,9 @@
               <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
               <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="/assets/search_icon.png"></button>
               <br>
-                <input type="button" value="전체선택"class="select-btn">
-                <input type="button" value="합격 알림"class="pass-btn">
-                <input type="button" value="불합격 알림"class="fail-btn">
+                <input type="button" value="전체선택" id="select-btn">
+                <input type="button" value="합격 알림" id="pass-btn">
+                <input type="button" value="불합격 알림" id="fail-btn">
             </div>
 
             <div class="clubs"> 
@@ -121,9 +121,14 @@
 
       })
       $('#select-btn').click(()=>{
-        $('input:checkbox[class="check"]').each(()=>{
-          this.checked = true; //checked 처리
-        });
+        if($('#select-btn').val() === '전체선택') {
+            $('#select-btn').prop('value', '전체해제');
+            $('.check').prop('checked', true);
+        }
+        else {
+            $('#select-btn').prop('value', '전체선택');
+            $('.check').prop('checked', false);
+        }
       });
       $('#search-btn').click(function() {
           changeFocus();
