@@ -120,14 +120,19 @@
           })
 
       })
+      $('#select-btn').click(()=>{
+        $('input:checkbox[class="check"]').each(()=>{
+          this.checked = true; //checked 처리
+        });
+      });
       $('#search-btn').click(function() {
           changeFocus();
-       });
-       function changeFocus() {
-         $('html, body').animate({
-           scrollTop: $('div[style*="color: red"]').offset().top
-         }, 'slow');
-       }
+      });
+      function changeFocus() {
+        $('html, body').animate({
+          scrollTop: $('div[style*="color: red"]').offset().top
+        }, 'slow');
+      }
     </script>
     <script type="text/javascript">
       $(document).ready(function() {
