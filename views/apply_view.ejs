@@ -17,7 +17,7 @@
     <link rel="icon" href="/assets/favicon_32.png" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/favicon_32.png" type="image/x-icon">
 
-    <base href="https://dorothy-mirim.herokuapp.com" target="_self">
+    <base href="http://localhost:5000" target="_self">
 </head>
 <body id="page-top">
     <div class="header">
@@ -77,8 +77,8 @@
                 <%var i = 0;%>
                 <%item.appliers.forEach(function(element){%>
                     <div class="club-col">
-                        <input type="checkbox" class="check">
                         <div class="appli-title">
+                            <input type="checkbox" class="check">
                             <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
                             <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
                         </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
