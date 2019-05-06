@@ -78,7 +78,7 @@
                 <%item.appliers.forEach(function(element){%>
                     <div class="club-col">
                         <div class="appli-title">
-                            <input type="checkbox" class="check">
+                            <input type="checkbox" class="check" value="1">
                             <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
                             <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
                         </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
@@ -130,6 +130,10 @@
             $('.check').prop('checked', false);
         }
       });
+      $('#pass-btn').click(()=>{
+        console.log("pass");
+        sendPassMessage();
+      });
       $('#search-btn').click(function() {
           changeFocus();
       });
@@ -137,6 +141,15 @@
         $('html, body').animate({
           scrollTop: $('div[style*="color: red"]').offset().top
         }, 'slow');
+      }
+      function sendPassMessage(){
+        $('.check').each(() => {
+          if(this.checked){//checked 처리된 항목의 값
+            alert(this.value); 
+          }
+        });
+        // $.post("sendPassOrFail", {}, function(res, status){
+        // });
       }
     </script>
     <script type="text/javascript">

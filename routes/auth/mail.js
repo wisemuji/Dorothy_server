@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const config = require('../../config.js');
 const rndstring = require("randomstring");
 
-function sendMail(email, token) {
+function sendMail(email, subject, content) {
   console.log(email);
 
   let transporter = nodemailer.createTransport({
@@ -16,9 +16,8 @@ function sendMail(email, token) {
   let mailOptions = {
       from: 's2017s25@e-mirim.hs.kr',    // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
       to: email ,                     // 수신 메일 주소
-      subject: '미림 동아리 통합 관리 솔루션, 도로시입니다. ',   // 제목
-      html: '<p>회원가입 완료를 위해 아래의 인증코드를 인증코드 입력란에 넣어주세요!</p>' +
-    "<p>" + token + "</p>"
+      subject: '['+subject+']미림 동아리 통합 관리 솔루션, 도로시입니다. ',   // 제목
+      html: content
   };
 
   transporter.sendMail(mailOptions, function(error, info){
@@ -35,7 +34,10 @@ module.exports = (app, Confirm)=>{
     app.post("/mailAuth", async (req,res) => {
         let email = req.body.email;
         let email_token = rndstring.generate(10);
-        await sendMail(email, email_token);
+        let content = '<p>회원가입 완료를 위해 아래의 인증코드를 인증코드 입력란에 넣어주세요!</p>' +
+        "<p>" + token + "</p>";
+        let subject = '이메일 인증'
+        await sendMail(email, subject, content);
         let confirm = await new Confirm({email:email, email_token:email_token});
         Confirm.findOneAndUpdate({email: email}, {email_token: email_token}, {upsert: true}, (err)=>{
           if(err) {
