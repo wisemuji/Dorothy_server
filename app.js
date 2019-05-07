@@ -47,6 +47,6 @@ require('./routes/auth/mail')(app, Confirm);
 require('./routes/auth/phone')(app, Confirm);
 require('./routes/club/viewClub')(app, Clubs, Users, rndstring);
 require('./routes/club/setClub')(app, Clubs, Users, rndstring);
-require('./routes/apply/apply')(app, Clubs, rndstring);
+require('./routes/apply/apply')(app, Clubs, Appliers, rndstring);
 require('./routes/apply/vertify')(app, Clubs);
 require('./routes/index')(app, Clubs);

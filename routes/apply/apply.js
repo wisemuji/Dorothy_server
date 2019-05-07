@@ -1,4 +1,4 @@
-module.exports = (app, Clubs, rndstring)=>{
+module.exports = (app, Clubs, Appliers, rndstring)=>{
   app.get('/apply/:token', async (req,res)=>{
       const token = req.params.token;
       const club = await Clubs.findOne({token: token});
@@ -11,6 +11,9 @@ module.exports = (app, Clubs, rndstring)=>{
   })
   .post('/apply/:token', async (req,res)=>{
       const email = req.session.email;
+      const user = await Appliers.find( { email: email } );
+      const phone = user.phone;
+      console.log(phone);
       const id = req.body.id;
       const name = req.body.name;
       const pr = req.body.pr;
@@ -18,8 +21,7 @@ module.exports = (app, Clubs, rndstring)=>{
       const token = rndstring.generate(40);
       Clubs.findOne({token: req.params.token}, function(err, rawContent){
           if(err) throw err;
-
-          rawContent.appliers.unshift({ email: email, id: id, name: name, pr: pr, reason: reason, token: token });
+          rawContent.appliers.unshift({ email: email, phone: phone, id: id, name: name, pr: pr, reason: reason, token: token });
           rawContent.save(function(err){
               if(err) throw err;
           });
