@@ -23,7 +23,10 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       const token = req.params.token;
       const club = await Clubs.findOne({token: token});
         if(req.session.logined) {
-         res.render('student_view', {item: club, id: req.session.user_id||req.session.email , email: req.session.email  });
+          if(req.session.user_id == 'root'){
+            res.render('leader_view', {item: club, id: req.session.user_id });
+          }
+          res.render('student_view', {item: club, id: req.session.user_id||req.session.email , email: req.session.email  });
         } else {
           res.render('student_view', {item: club, id: false});
         }
