@@ -13,6 +13,7 @@ module.exports = (app, Clubs, Appliers, rndstring)=>{
       const email = req.session.email;
       const user = await Appliers.find( { email: email } );
       const phone = user.phone;
+      console.log(user);
       console.log(phone);
       const id = req.body.id;
       const name = req.body.name;
