@@ -60,45 +60,48 @@
      <!-- introduction section -->
     <section id="introduction" class="about-section text-center">
         <div class="container" style="padding-top: 71px; max-width: 100%;">
+          <form action="sendPassOrFail" method="post" id="appliers">
             <hr width="70px">
-            <div class="sec-name"><%=item.name%></div>
-            <div class="search-box">
-              <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
-              <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="/assets/search_icon.png"></button>
-              <br>
-                <input type="button" value="전체선택" id="select-btn">
-                <input type="button" value="합격 알림" id="pass-btn">
-                <input type="button" value="불합격 알림" id="fail-btn">
-            </div>
+              <div class="sec-name"><%=item.name%></div>
+              <div class="search-box">
+                <input type="text" placeholder="신청자 이름 or 학번" name="search" id="search">
+                <button class="search-btn" type="button" onclick="changeFocus(); " id="search-btn"><img src="/assets/search_icon.png"></button>
+                <br>
+                  <input type="button" value="전체선택" id="select-btn">
+                  <input type="button" value="합격 알림" id="pass-btn">
+                  <input type="button" value="불합격 알림" id="fail-btn">
+              </div>
 
-            <div class="clubs"> 
-              <div class="club-row">
-              <%if(item.appliers.length>0){%>
-                <%var i = 0;%>
-                <%item.appliers.forEach(function(element){%>
-                    <div class="club-col">
-                        <div class="appli-title">
-                            <input type="checkbox" class="check" value="1">
-                            <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
-                            <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
-                        </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
-                        <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
-                        <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+              <div class="clubs"> 
+                <div class="club-row">
+                <%if(item.appliers.length>0){%>
+                  <%var i = 0;%>
+                  <%item.appliers.forEach(function(element){%>
+                      <div class="club-col">
+                          <div class="appli-title">
+                              <input type="checkbox" class="check" name="check" value="01026776906">
+                              <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
+                              <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
+                          </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
+                          <div class="appli-pr" id="appli-pr"><%=element.pr%></div>
+                          <div class="appli-reason" id="appli-reason"><%=element.reason%></div>
+                      </div>
+                    <%if(i%3==0&&i!=0){%>
                     </div>
-                  <%if(i%3==0&&i!=0){%>
-                  </div>
-                  <div class="club-row">
-                  <%}%>
-                  <%i++;%>
-                <%})%>
+                    <div class="club-row">
+                    <%}%>
+                    <%i++;%>
+                  <%})%>
+                </div>
+                  <%} else {%>
+                  <tr>
+                      <td colspan="5">아직 신청자가 없습니다.</td>
+                  </tr>
+                <%}%>
+                </div>
               </div>
-                <%} else {%>
-                <tr>
-                    <td colspan="5">아직 신청자가 없습니다.</td>
-                </tr>
-              <%}%>
-              </div>
-            </div>
+              <input type="hidden" name="club" value="appandme">
+          </form>
         </div>
     </section>
      <script src="/js/grayscale.min.js"></script>
@@ -130,10 +133,6 @@
             $('.check').prop('checked', false);
         }
       });
-      $('#pass-btn').click(()=>{
-        console.log("pass");
-        sendPassMessage();
-      });
       $('#search-btn').click(function() {
           changeFocus();
       });
@@ -142,15 +141,15 @@
           scrollTop: $('div[style*="color: red"]').offset().top
         }, 'slow');
       }
-      function sendPassMessage(){
-        $('.check').each(() => {
-          if(this.checked){//checked 처리된 항목의 값
-            alert(this.value); 
-          }
-        });
-        // $.post("sendPassOrFail", {}, function(res, status){
-        // });
-      }
+      $('#pass-btn').click(()=>{
+          var input = $("<input>")
+              .attr("type", "hidden")
+              .attr("name", "isPass")
+              .val("합격");
+          $('#appliers').append($(input));
+          $('#appliers').submit();
+          alert("성공적으로 메시지가 전송되었습니다.")
+      });
     </script>
     <script type="text/javascript">
       $(document).ready(function() {

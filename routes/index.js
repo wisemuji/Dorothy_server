@@ -13,6 +13,7 @@ module.exports = function(app, Clubs){
   })
   .get('/:page', function (req, res) {
     const page = req.params.page;
+    console.log(page);
     if(page == 'index') res.redirect('/');
     Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
       if(err) throw err;
