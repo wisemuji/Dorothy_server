@@ -15,6 +15,7 @@ module.exports = function(app, Clubs){
     const page = req.params.page;
     console.log(page);
     if(page == 'index') res.redirect('/');
+    else if(page == 'favicon.ico') return;
     Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
       if(err) throw err;
         if(req.session.logined) {
