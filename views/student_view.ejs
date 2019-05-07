@@ -158,7 +158,7 @@
             </div>
         </div>
 
-        <%if(!id){%>
+        <%if(email){%>
           <center><input type="button" value="신청하기"class="join-btn" onclick="location.href='/apply/<%=item.token%>'"></center>
         <% } else { %>
           <center><input type="button" value="신청자 조회"class="join-btn" onclick="location.href='/vertify/<%=item.token%>'"></center>
