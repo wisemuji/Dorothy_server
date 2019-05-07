@@ -145,9 +145,21 @@
           var input = $("<input>")
               .attr("type", "hidden")
               .attr("name", "isPass")
+              .attr("id", "hidden-value")
               .val("합격");
           $('#appliers').append($(input));
           $('#appliers').submit();
+          $( "#hidden-value" ).remove();
+      });
+      $('#fail-btn').click(()=>{
+          var input = $("<input>")
+              .attr("type", "hidden")
+              .attr("name", "isPass")
+              .attr("id", "hidden-value")
+              .val("불합격");
+          $('#appliers').append($(input));
+          $('#appliers').submit();
+          $( "#hidden-value" ).remove();
       });
     </script>
     <script type="text/javascript">
