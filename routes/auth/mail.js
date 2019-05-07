@@ -35,7 +35,7 @@ module.exports = (app, Confirm)=>{
         let email = req.body.email;
         let email_token = rndstring.generate(10);
         let content = '<p>회원가입 완료를 위해 아래의 인증코드를 인증코드 입력란에 넣어주세요!</p>' +
-        "<p>" + token + "</p>";
+        "<p>" + email_token + "</p>";
         let subject = '이메일 인증'
         await sendMail(email, subject, content);
         let confirm = await new Confirm({email:email, email_token:email_token});
