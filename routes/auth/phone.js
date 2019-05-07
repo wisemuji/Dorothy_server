@@ -53,11 +53,11 @@ module.exports = (app, Confirm)=>{
                 from: '+12053509816' // From a valid Twilio number
             })
             .then( async (message) => {
-                res.redirect('/');
+                res.send('<script type="text/javascript">alert("성공적으로 메시지가 보내졌습니다."); history.back();</script>');
             },
                 (error) => {
                     console.error(error);
-                    res.redirect('/');
+                    res.send('<script type="text/javascript">alert("메시지 전송에 실패하였습니다."); history.back();</script>');
                 }
             )
         });

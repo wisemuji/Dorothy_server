@@ -43,7 +43,7 @@ module.exports = (app, Clubs, Users, rndstring)=>{
         });
       }
     };
-  	res.send('<script type="text/javascript">alert("동아리 정보가 업데이트되었습니다."); window.location.href = "https://dorothy-mirim.herokuapp.com";</script>');
+  	res.send('<script type="text/javascript">alert("동아리 정보가 업데이트되었습니다."); history.back();</script>');
   })
   .post('/deleteClubAll', async (req,res)=>{
       Clubs.remove({}, function(err) {
