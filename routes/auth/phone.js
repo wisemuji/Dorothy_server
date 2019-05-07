@@ -35,7 +35,7 @@ module.exports = (app, Confirm)=>{
         )
     })
 
-    .post("/sendPassOrFail", async (req,res) => {
+    .post("/vertify/sendPassOrFail", async (req,res) => {
         const club = req.body.club;
         const isPass = req.body.isPass;
         let elements = req.body.check;
