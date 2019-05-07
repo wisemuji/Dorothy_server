@@ -79,7 +79,7 @@
                   <%item.appliers.forEach(function(element){%>
                       <div class="club-col">
                           <div class="appli-title">
-                              <input type="checkbox" class="check" name="check" value="01026776906">
+                              <input type="checkbox" class="check" name="check" value='<%=element.phone%>'>
                               <div class="appli-name"><%=element.id%>&nbsp;<%=element.name%></div>
                               <div class="appli-close" onclick="location.href='/remove_applier/<%=element.token%>'">X</div>
                           </div> <!-- 이 자리에 학번 이름으로 내용 채울 것! -->
