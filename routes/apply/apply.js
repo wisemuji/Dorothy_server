@@ -12,7 +12,7 @@ module.exports = (app, Clubs, Appliers, rndstring)=>{
   .post('/apply/:token', async (req,res)=>{
       const email = req.session.email;
       const user = await Appliers.find( { email: email } );
-      const phone = user.phone;
+      const phone = user[0].phone;
       console.log(user);
       console.log(phone);
       const id = req.body.id;
