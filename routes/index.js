@@ -15,7 +15,7 @@ module.exports = function(app, Clubs){
     const page = req.params.page;
     console.log(page);
     if(page == 'index') res.redirect('/');
-    else if(page == 'favicon.ico') return;
+    else if(!page.includes('form')&&!page.includes('apply_view')&&!page.includes('join')&&!page.includes('leader_view')&&!page.includes('login')&&!page.includes('root')&&!page.includes('student_view')) return;
     Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
       if(err) throw err;
         if(req.session.logined) {
