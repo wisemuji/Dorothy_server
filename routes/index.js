@@ -15,14 +15,18 @@ module.exports = function(app, Clubs){
     const page = req.params.page;
     console.log(page);
     if(page == 'index') res.redirect('/');
-    else if(!page.includes('form')&&!page.includes('apply_view')&&!page.includes('join')&&!page.includes('leader_view')&&!page.includes('login')&&!page.includes('root')&&!page.includes('student_view')) return;
-    Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
-      if(err) throw err;
-        if(req.session.logined) {
-         res.render(page + '', {contents: rawContents, id: req.session.user_id||req.session.email });
-        } else {
-          res.render(page + '', {contents: rawContents, id: false});
-        }
-     });
+    else if(page.equals('form')||page.equals('join')||page.equals('login')||page.equals('root')){
+      Clubs.find({}).sort({date:0}).exec(function(err, rawContents){
+        if(err) throw err;
+          if(req.session.logined) {
+           res.render(page + '', {contents: rawContents, id: req.session.user_id||req.session.email });
+          } else {
+            res.render(page + '', {contents: rawContents, id: false});
+          }
+       });
+    } 
+    else {
+      res.status(404).send("<script type='text/javascript'>alert(잘못된 경로입니다.);</script>");
+    }
   });
 }
