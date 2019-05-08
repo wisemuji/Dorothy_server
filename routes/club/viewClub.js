@@ -9,10 +9,10 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       if(!club){
         const new_club = new Clubs;
         new_club.token = req.session.club;
-        res.render('leader_view', {item: new_club, id: req.session.user_id });
+        res.render('leader_view', {item: new_club, id: req.session.user_id,  email: null });
       }
       else{
-        res.render('leader_view', {item: club, id: req.session.user_id });
+        res.render('leader_view', {item: club, id: req.session.user_id, email: null });
      }
     }
   })
@@ -24,7 +24,7 @@ module.exports = (app, Clubs, Users, rndstring)=>{
       const club = await Clubs.findOne({token: token});
         if(req.session.logined) {
           if(req.session.user_id == 'root'){
-            res.render('leader_view', {item: club, id: req.session.user_id });
+            res.render('leader_view', {item: club, id: req.session.user_id, email: null });
           }
           res.render('student_view', {item: club, id: req.session.user_id||req.session.email , email: req.session.email  });
         } else {
