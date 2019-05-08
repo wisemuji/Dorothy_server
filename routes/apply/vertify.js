@@ -15,6 +15,6 @@ module.exports = (app, Clubs)=>{
       function (err, res) {
           if(err) console.log('2'+err);
       });
-  	res.send('<script type="text/javascript">alert("삭제가 완료되었습니다.");history.back()</script>');
+  	res.send('<script type="text/javascript">alert("삭제가 완료되었습니다."); location.href = "/";</script>');
   });
 }
