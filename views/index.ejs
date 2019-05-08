@@ -154,8 +154,8 @@
                       <%i++;%>
                       {
                           title: '<%=item.name%>',
-                          start: new Date('<%=item.interview_date%>'),
-                          end: new Date('<%=item.interview_date%>'),
+                          start: new Date('<%=item.interview_date%>').toISOString(),
+                          end: new Date('<%=item.interview_date%>').toISOString(),
                           color: '#'+bgColor[Math.floor(Math.random() * bgColor.length)]
                       },
                       <%})%>
