@@ -28,7 +28,7 @@ module.exports = (app, Clubs, Users, rndstring)=>{
           }
           res.render('student_view', {item: club, id: req.session.user_id||req.session.email , email: req.session.email  });
         } else {
-          res.render('student_view', {item: club, id: false});
+          res.render('student_view', {item: club, id: false, email: null });
         }
 
   })
