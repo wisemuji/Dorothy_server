@@ -27,7 +27,7 @@ module.exports = (app, Clubs, Appliers, rndstring)=>{
               if(err) throw err;
           });
       });
-    	res.send('<script type="text/javascript">alert("신청이 완료되었습니다."); history.back();</script>');
+    	res.send('<script type="text/javascript">alert("신청이 완료되었습니다."); location.href = "/";</script>');
 
   })
 
