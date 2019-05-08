@@ -174,13 +174,10 @@
                     else return str;
                 }
                 var today = new Date('<%=item.interview_date%>');
-                var yyyy = today.getFullYear();
-                var MM = addZero(today.getMonth() + 1);
-                var dd = addZero(today.getDate());
-                var hh = addZero(today.getHours());
-                var mm = addZero(today.getMinutes());
+                today = today.toISOString(); //정해진 포맷으로 변환 "2019-05-11T07:05:00.000Z"
+                today = today.slice(0, today.length-5); //"2019-05-11T07:05:00"
 
-                document.getElementById("interview").value = yyyy+"-"+MM+"-"+dd+"T"+hh+":"+mm;
+                document.getElementById("interview").value = today;
             </script>
              <!-- 기타 공지 -->
             <div class="content">
