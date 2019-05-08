@@ -169,13 +169,18 @@
                 </div>
             </div>
              <script>
+                function addZero(str){
+                    if((str+"").length < 2) return '0' + str;
+                    else return str;
+                }
                 var today = new Date('<%=item.interview_date%>');
-                var year = today.getFullYear();
-                var month = today.getMonth() + 1;
-                var date = today.getDate();
-                var h = today.getHours();
-                var m = today.getMinutes();
-                document.getElementById("interview").value = year+"-"+month+"-"+date+"T"+h+":"+m;
+                var yyyy = today.getFullYear();
+                var MM = addZero(today.getMonth() + 1);
+                var dd = addZero(today.getDate());
+                var hh = addZero(today.getHours());
+                var mm = addZero(today.getMinutes());
+
+                document.getElementById("interview").value = yyyy+"-"+MM+"-"+dd+"T"+hh+":"+mm;
             </script>
              <!-- 기타 공지 -->
             <div class="content">
