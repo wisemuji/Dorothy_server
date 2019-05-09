@@ -4,7 +4,7 @@
 
 ## Website
 
-http://dorothy-mirim.herokuapp.com/
+http://ec2-13-125-242-65.ap-northeast-2.compute.amazonaws.com/
 
 ## Features
 
