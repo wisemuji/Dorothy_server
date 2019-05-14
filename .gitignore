@@ -42,7 +42,6 @@ npm-debug.log
 
 # speedy
 node_modules
-package-lock.json
 uploads/*
 bfg-1.13.0.jar
 dorothy-mirim.pem
