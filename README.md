@@ -4,7 +4,7 @@
 
 ## Website
 
-http://ec2-13-125-242-65.ap-northeast-2.compute.amazonaws.com/
+http://15.164.96.117/
 
 ## Features
 
