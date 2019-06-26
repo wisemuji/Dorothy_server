@@ -14,7 +14,7 @@ module.exports = (app, Users, Appliers, rndstring)=>{
       if(e instanceof ValidationError) return res.status(400).json({message: e.message});
       if(e instanceof paramsError) return res.status(400).json({message: e.message});
     }
-    res.redirect("/");
+    res.send('<script type="text/javascript">alert("동아리 생성이 성공적으로 완료되었습니다."); location.href = "/";</script>');
   })
   .post('/signup', async(req,res)=>{
     var appliers = new Appliers(req.body);
