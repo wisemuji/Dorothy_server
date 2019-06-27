@@ -129,7 +129,7 @@
         var code = $('.code');
         var codeFlag = false;
         var pcode = $('.pcode');
-        var pcodeFlag = false;
+        var pcodeFlag = true;
         var phone = $('.phone');
         var phoneFlag = true;
         var echeck = $('#echeck');
@@ -255,7 +255,7 @@
             });
 
             $('.form-submit').click(function() { 
-                if(idFlag == false || pwFlag == false || pwchFlag == false || pcodeFlag == false || codeFlag == false ) {
+                if(idFlag == false || pwFlag == false || pwchFlag == false || phoneFlag == false || pcodeFlag == false || codeFlag == false ) {
                     $('.submit-error').text("양식을 한 번 더 확인해주세요");
                 }
                 else { // 모든 조건 충족 시
