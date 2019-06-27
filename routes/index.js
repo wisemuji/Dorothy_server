@@ -1,13 +1,22 @@
 var express = require('express');
 var router = express.Router();
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 module.exports = function(app, Clubs){
   app.get('/', function (req, res) {
      Clubs.find({}).sort({date:-1}).exec(function(err, rawContents){ //오래된 순으로 정렬
        if(err) throw err;
          if(req.session.logined) {
-          res.render('index', {contents: rawContents, id: req.session.user_id||req.session.email });
+          res.render('index', {contents: shuffle(rawContents), id: req.session.user_id||req.session.email });
          } else {
-          res.render('index', {contents: rawContents, id: false});
+          res.render('index', {contents: shuffle(rawContents), id: false});
          }
       });
   })
