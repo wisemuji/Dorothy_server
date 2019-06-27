@@ -155,11 +155,19 @@
                           title: '<%=item.name%>',
                           start: new Date('<%=item.interview_date%>').toISOString(),
                           end: new Date('<%=item.interview_date%>').toISOString(),
+                          url: '/view/<%=item.token%>',
                           color: '#'+bgColor[Math.floor(Math.random() * bgColor.length)]
                       },
                       <%})%>
                     <%}%>
-                ]
+                ], 
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault(); // don't let the browser navigate
+
+                    if (info.event.url) {
+                    window.open(info.event.url);
+                    }
+                }
             });
             // 동아리 목록 slider임
             $('.center').slick({
